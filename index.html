@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<title>省力化投資補助金 申請ガイド | MY補助金パートナー</title>
+<meta name="description" content="中小企業省力化投資補助金の申請に必要な書類をご案内。法人・個人事業主それぞれの必要書類をチェックリスト形式で確認できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#F5F5F7;
+    --bg-soft2:#FBFBFD;
+    --ink:#1D1D1F;
+    --ink-soft:#6E6E73;
+    --ink-faint:#86868B;
+    --blue:#0071E3;
+    --blue-deep:#0058B0;
+    --line:#D2D2D7;
+    --line-soft:#E8E8ED;
+    --ok:#1E8E3E;
+    --ok-soft:#E6F4EA;
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
+    --shadow-md: 0 10px 34px rgba(0,0,0,0.10);
+    --serif: "Noto Sans JP", "Inter", sans-serif;
+    --disp: "Inter", "Noto Sans JP", sans-serif;
+    --mono: "Inter", monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans JP","Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--blue); color:#fff;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+
+  /* ===================== TOP NAV ===================== */
+  header.nav{
+    position:sticky; top:0; z-index:60;
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:0 22px;
+    height:52px; display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-left{display:flex; align-items:center; gap:16px;}
+  .burger{
+    width:34px; height:34px; border-radius:50%; border:none; background:transparent;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .burger:hover{background:var(--bg-soft);}
+  .burger span{display:block; width:16px; height:1.4px; background:var(--ink); margin:2.5px 0; transition:.25s ease;}
+
+  .brand{font-size:.86rem; font-weight:600; letter-spacing:-0.01em; display:flex; align-items:center; gap:8px;}
+  .brand .dot{width:7px; height:7px; border-radius:50%; background:var(--blue);}
+
+  nav.pills{display:flex; gap:30px;}
+  nav.pills a{font-size:.78rem; color:var(--ink-soft); font-weight:400; transition:color .2s ease;}
+  nav.pills a:hover{color:var(--ink);}
+  @media (max-width:820px){ nav.pills{display:none;} }
+
+  .nav-cta{
+    font-size:.76rem; font-weight:500; color:#fff; background:var(--blue);
+    padding:7px 16px; border-radius:980px; transition:background .2s ease; white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--blue-deep);}
+
+  /* ===================== SIDEBAR DRAWER ===================== */
+  .sidebar-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.35);
+    opacity:0; pointer-events:none; transition:opacity .35s ease; z-index:98;
+    backdrop-filter:blur(2px);
+  }
+  .sidebar-backdrop.open{opacity:1; pointer-events:auto;}
+
+  .sidebar{
+    position:fixed; top:0; left:0; bottom:0; width:300px; max-width:82vw;
+    background:#fff; z-index:99;
+    transform:translateX(-100%); transition:transform .38s cubic-bezier(.32,.72,0,1);
+    box-shadow: 24px 0 60px rgba(0,0,0,0.18);
+    display:flex; flex-direction:column;
+    padding:20px 0 24px;
+  }
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:6px 22px 18px; border-bottom:1px solid var(--line-soft); margin-bottom:8px;
+  }
+  .sidebar-head .brand{font-size:.9rem;}
+  .sidebar-close{
+    width:30px; height:30px; border-radius:50%; border:none; background:var(--bg-soft);
+    cursor:pointer; position:relative;
+  }
+  .sidebar-close::before,.sidebar-close::after{
+    content:""; position:absolute; left:9px; top:14px; width:12px; height:1.4px; background:var(--ink);
+  }
+  .sidebar-close::before{transform:rotate(45deg);}
+  .sidebar-close::after{transform:rotate(-45deg);}
+
+  .sidebar-list{list-style:none; margin:0; padding:6px 10px; overflow-y:auto;}
+  .sidebar-list li a{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:13px 12px; border-radius:10px; font-size:.94rem; font-weight:500;
+    color:var(--ink); transition:background .15s ease;
+  }
+  .sidebar-list li a:hover{background:var(--bg-soft);}
+  .sidebar-list li a .chev{color:var(--ink-faint); font-size:.8rem;}
+  .sidebar-sub{list-style:none; margin:0 0 6px; padding:0 12px 0 22px;}
+  .sidebar-sub li a{
+    font-size:.86rem; font-weight:400; color:var(--ink-soft); padding:10px 12px;
+  }
+  .sidebar-divider{height:1px; background:var(--line-soft); margin:10px 22px;}
+  .sidebar-foot{padding:14px 22px 0; font-size:.72rem; color:var(--ink-faint); margin-top:auto;}
+
+  main{position:relative; z-index:1;}
+  section{max-width:1180px; margin:0 auto; padding:100px 22px;}
+  @media (max-width:760px){ section{padding:70px 20px;} }
+  section.soft{background:var(--bg-soft); max-width:none; padding-left:0; padding-right:0;}
+  section.soft > .inner{max-width:1180px; margin:0 auto; padding:100px 22px;}
+  @media (max-width:760px){ section.soft > .inner{padding:70px 20px;} }
+
+  .eyebrow{
+    font-size:.8rem; font-weight:600; color:var(--blue); letter-spacing:.01em; display:block; margin-bottom:10px;
+  }
+  h2.title{
+    font-weight:700; letter-spacing:-0.02em; line-height:1.2;
+    font-size:clamp(1.9rem, 3.6vw, 2.7rem); margin:0 0 .3em;
+  }
+  p.lead{color:var(--ink-soft); font-size:1.06rem; max-width:640px;}
+
+  /* ===================== HERO ===================== */
+  .hero{
+    padding:96px 22px 90px; text-align:center;
+  }
+  .hero-inner{max-width:900px; margin:0 auto;}
+  .hero .eyebrow{display:inline-block; margin:0 auto 18px;}
+  h1.hero-title{
+    font-weight:800; letter-spacing:-0.03em; line-height:1.15;
+    font-size:clamp(2.4rem, 6.6vw, 4.4rem); margin:0 0 22px; color:var(--ink);
+  }
+  h1.hero-title span{color:var(--blue);}
+  .hero-lead{color:var(--ink-soft); font-size:1.18rem; max-width:560px; margin:0 auto 40px;}
+
+  .hero-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:64px;}
+  .btn{
+    padding:13px 26px; border-radius:980px; font-size:.94rem; font-weight:500;
+    transition:.2s ease; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{background:var(--blue-deep);}
+  .btn-ghost{background:var(--bg-soft); color:var(--ink);}
+  .btn-ghost:hover{background:var(--line-soft);}
+
+  .hero-cards{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:820px; margin:0 auto;
+    text-align:left;
+  }
+  @media (max-width:640px){ .hero-cards{grid-template-columns:1fr;} }
+  .path-card{
+    background:var(--bg-soft2); border:1px solid var(--line-soft); border-radius:22px;
+    padding:30px 28px; box-shadow:var(--shadow-sm);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
+  }
+  .path-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
+  .path-card .num{font-size:.74rem; color:var(--blue); font-weight:600;}
+  .path-card h3{font-size:1.35rem; font-weight:700; letter-spacing:-0.01em; margin:.5em 0 .3em;}
+  .path-card p{color:var(--ink-soft); font-size:.9rem; margin:0 0 16px;}
+  .path-card .go{font-size:.82rem; color:var(--blue); font-weight:500; display:inline-flex; align-items:center; gap:5px;}
+  .path-card .go svg{transition:transform .25s ease;}
+  .path-card:hover .go svg{transform:translateX(4px);}
+
+  .hero-official{margin-top:34px; font-size:.84rem; color:var(--ink-faint);}
+  .hero-official a{color:var(--blue); font-weight:500;}
+
+  /* ===================== ABOUT ===================== */
+  .about-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:start;}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr; gap:36px;} }
+  .about-copy p{color:var(--ink-soft); font-size:1.02rem; margin:1.1em 0;}
+  .about-copy .quote{
+    background:var(--bg); border:1px solid var(--line-soft); border-radius:18px;
+    padding:24px 26px; margin:26px 0; font-size:1.02rem; color:var(--ink); font-weight:500;
+    box-shadow:var(--shadow-sm);
+  }
+  .diagram{background:#fff; border:1px solid var(--line-soft); border-radius:22px; padding:30px; box-shadow:var(--shadow-sm);}
+  .diagram-label{font-size:.76rem; color:var(--ink-faint); font-weight:600; margin-bottom:18px; display:block; text-transform:uppercase; letter-spacing:.06em;}
+  .diagram-node{display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px solid var(--line-soft); font-size:.92rem;}
+  .diagram-node:last-child{border-bottom:none;}
+  .diagram-node .dot{width:9px; height:9px; border-radius:50%; background:var(--blue); flex:none; margin-top:6px;}
+  .diagram-node b{font-weight:600;}
+  .diagram-node span{color:var(--ink-soft); font-size:.84rem; display:block; margin-top:2px;}
+
+  /* ===================== TIMELINE ===================== */
+  .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:56px 0 40px;}
+  @media (max-width:820px){ .timeline{grid-template-columns:1fr;} }
+  .tl-step{background:#fff; border:1px solid var(--line-soft); border-radius:20px; padding:26px; box-shadow:var(--shadow-sm);}
+  .tl-step .marker{
+    width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; margin-bottom:18px;
+  }
+  .tl-step h4{font-size:1.05rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em;}
+  .tl-step p{color:var(--ink-soft); font-size:.86rem; margin:0;}
+
+  .notice-box{
+    background:var(--ink); color:#fff; border-radius:22px; padding:34px 36px; margin-top:36px;
+  }
+  .notice-box .eyebrow{color:#8AB8FF;}
+  .notice-box ul{margin:16px 0 0; padding-left:0; list-style:none;}
+  .notice-box li{padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.14); font-size:.94rem; color:#EDEDED; display:flex; gap:12px;}
+  .notice-box li:last-child{border-bottom:none;}
+  .notice-box li::before{content:"→"; color:#8AB8FF; flex:none;}
+
+  /* ===================== BONUS ===================== */
+  .bonus-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:44px;}
+  @media (max-width:760px){ .bonus-grid{grid-template-columns:1fr;} }
+  .bonus-card{background:#fff; border:1px solid var(--line-soft); border-radius:22px; padding:30px; box-shadow:var(--shadow-sm);}
+  .bonus-card h4{font-size:.8rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.05em; margin:0 0 18px;}
+  .merit-list,.steps-mini{list-style:none; padding:0; margin:0;}
+  .merit-list li{display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-bottom:1px solid var(--line-soft); font-size:.94rem;}
+  .merit-list li:last-child{border-bottom:none;}
+  .merit-list li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--blue); margin-top:8px; flex:none;}
+  .steps-mini{counter-reset:mini;}
+  .steps-mini li{counter-increment:mini; padding:11px 0; border-bottom:1px solid var(--line-soft); font-size:.94rem; display:flex; gap:14px;}
+  .steps-mini li:last-child{border-bottom:none;}
+  .steps-mini li::before{content:counter(mini); font-weight:700; color:var(--blue); flex:none; width:18px;}
+  .bonus-links{margin-top:20px; display:flex; flex-direction:column; gap:10px;}
+  .bonus-links a{font-size:.86rem; color:var(--blue); font-weight:500; width:fit-content;}
+  .bonus-links a:hover{text-decoration:underline;}
+  .fine-print{font-size:.8rem; color:var(--ink-faint); margin-top:16px;}
+
+  /* ===================== DOCS ===================== */
+  .docs-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:22px; margin-bottom:34px;}
+  .tabs{display:inline-flex; background:var(--bg-soft); border-radius:980px; padding:4px;}
+  .tab-btn{
+    font-weight:600; font-size:.86rem; padding:10px 22px; border-radius:980px; border:none;
+    background:transparent; cursor:pointer; color:var(--ink-soft); transition:.2s ease;
+  }
+  .tab-btn.active{background:#fff; color:var(--ink); box-shadow:var(--shadow-sm);}
+
+  .progress-widget{display:flex; align-items:center; gap:16px;}
+  .ring{width:52px; height:52px; position:relative;}
+  .ring svg{transform:rotate(-90deg); width:52px; height:52px;}
+  .ring circle{fill:none; stroke-width:4;}
+  .ring .bg{stroke:var(--line-soft);}
+  .ring .fg{stroke:var(--blue); stroke-linecap:round; transition:stroke-dashoffset .4s ease;}
+  .ring-label{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:.66rem; font-weight:700;}
+  .progress-text{font-size:.84rem; color:var(--ink-soft);}
+  .progress-text b{color:var(--ink); font-weight:700;}
+
+  .doc-panel{display:none;}
+  .doc-panel.active{display:block; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .doc-note{
+    font-size:.88rem; color:#146C2E; background:var(--ok-soft); border:1px solid #CDEAD5;
+    padding:14px 18px; border-radius:14px; margin-bottom:28px;
+  }
+
+  .doc-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .doc-item{
+    background:#fff; border:1px solid var(--line-soft); border-radius:18px; padding:20px 22px;
+    display:grid; grid-template-columns:38px 1fr auto; gap:18px; align-items:start;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .doc-item:hover{box-shadow:var(--shadow-sm);}
+  @media (max-width:640px){
+    .doc-item{grid-template-columns:30px 1fr;}
+    .doc-item .doc-action{grid-column:1 / -1; margin-top:6px;}
+  }
+  .doc-item.optional{background:var(--bg-soft2);}
+  .doc-body h5{margin:0 0 6px; font-size:1rem; font-weight:600; display:flex; align-items:center; gap:10px; flex-wrap:wrap; letter-spacing:-0.005em;}
+  .doc-body h5 .badge{
+    font-size:.66rem; font-weight:600; padding:3px 10px; border-radius:980px;
+    background:#FFF4E5; color:#B26A00;
+  }
+  .doc-body .fmt{font-size:.85rem; color:var(--ink-soft); margin:0 0 6px;}
+  .doc-body .caveat{font-size:.8rem; color:#B26A00; margin:0;}
+  .doc-action a{
+    font-size:.8rem; font-weight:600; white-space:nowrap; color:var(--blue);
+    border:1.4px solid var(--blue); padding:8px 16px; border-radius:980px;
+    transition:.2s ease; display:inline-block;
+  }
+  .doc-action a:hover{background:var(--blue); color:#fff;}
+  .check{
+    width:24px; height:24px; border:1.6px solid var(--line); border-radius:50%;
+    cursor:pointer; position:relative; flex:none; background:#fff; margin-top:2px;
+    transition:.2s ease;
+  }
+  .check:hover{border-color:var(--blue);}
+  .check.checked{background:var(--ok); border-color:var(--ok);}
+  .check.checked::after{
+    content:""; position:absolute; left:7px; top:3px; width:6px; height:11px;
+    border-right:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(40deg);
+  }
+  .doc-item.done{border-color:var(--ok-soft);}
+  .doc-item.done .doc-body h5{color:var(--ok); text-decoration:line-through; text-decoration-color:var(--ok);}
+
+  /* ===================== FOOTER ===================== */
+  footer{background:var(--bg-soft); padding:56px 22px 40px; margin-top:20px;}
+  .footer-inner{max-width:1180px; margin:0 auto;}
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;
+    padding-bottom:28px; border-bottom:1px solid var(--line-soft); margin-bottom:22px;
+  }
+  .footer-top .brand{font-size:.95rem;}
+  .back-top{font-size:.78rem; color:var(--ink-soft); border:1px solid var(--line); padding:8px 16px; border-radius:980px;}
+  .back-top:hover{border-color:var(--ink); color:var(--ink);}
+  footer p.copy{font-size:.76rem; color:var(--ink-faint); margin:0;}
+
+  @media (max-width:900px){
+    .nav-cta{display:none;}
+  }
+
+  /* ===================== MANUAL OVERLAY ===================== */
+  .manual-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.55);
+    opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:198;
+    backdrop-filter:blur(6px);
+  }
+  .manual-backdrop.open{opacity:1; pointer-events:auto;}
+
+  .manual-modal{
+    position:fixed; left:50%; top:50%; z-index:199;
+    width:min(640px, 92vw); max-height:min(82vh, 760px);
+    background:#fff; border-radius:26px; overflow:hidden;
+    display:flex; flex-direction:column;
+    box-shadow:0 30px 80px rgba(0,0,0,0.35);
+    opacity:0; pointer-events:none;
+    transform:translate(-50%,-46%) scale(0.96);
+    transition:opacity .32s cubic-bezier(.2,.9,.25,1), transform .32s cubic-bezier(.2,.9,.25,1);
+  }
+  .manual-modal.open{opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1);}
+
+  .manual-head{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+    padding:30px 30px 22px; border-bottom:1px solid var(--line-soft); flex:none;
+  }
+  .manual-head .m-eyebrow{font-size:.78rem; font-weight:600; color:var(--blue); display:block; margin-bottom:6px;}
+  .manual-head h3{font-size:1.36rem; font-weight:700; letter-spacing:-0.02em; margin:0; line-height:1.35;}
+  .manual-close{
+    width:34px; height:34px; border-radius:50%; border:none; background:var(--bg-soft);
+    cursor:pointer; position:relative; flex:none; transition:background .2s ease;
+  }
+  .manual-close:hover{background:var(--line-soft);}
+  .manual-close::before,.manual-close::after{
+    content:""; position:absolute; left:10px; top:16px; width:14px; height:1.6px; background:var(--ink);
+  }
+  .manual-close::before{transform:rotate(45deg);}
+  .manual-close::after{transform:rotate(-45deg);}
+
+  .manual-body{padding:26px 30px 34px; overflow-y:auto;}
+  .manual-body p{color:var(--ink-soft); font-size:.96rem; margin:0 0 14px;}
+  .manual-lede{color:var(--ink); font-size:1.02rem; font-weight:500; margin-bottom:22px;}
+
+  .manual-check{list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:2px;}
+  .manual-check li{
+    display:flex; align-items:flex-start; gap:12px; padding:12px 4px;
+    border-bottom:1px solid var(--line-soft); font-size:.92rem; color:var(--ink);
+  }
+  .manual-check li:last-child{border-bottom:none;}
+  .manual-check li::before{
+    content:"✓"; color:var(--ok); font-weight:700; font-size:.8rem; flex:none;
+    width:20px; height:20px; border-radius:50%; background:var(--ok-soft);
+    display:flex; align-items:center; justify-content:center; margin-top:1px;
+  }
+
+  .manual-section-title{
+    font-size:.76rem; font-weight:700; color:var(--ink-faint); text-transform:uppercase;
+    letter-spacing:.06em; margin:22px 0 10px;
+  }
+  .manual-note{
+    background:var(--bg-soft); border-radius:14px; padding:16px 18px; font-size:.86rem;
+    color:var(--ink-soft); margin:18px 0;
+  }
+  .manual-note b{color:var(--ink);}
+  .manual-warn{
+    background:#FFF4E5; border-radius:14px; padding:16px 18px; font-size:.86rem;
+    color:#8A5300; margin:18px 0;
+  }
+  .manual-actions{display:flex; flex-direction:column; gap:10px; margin-top:22px;}
+  .manual-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 20px; border-radius:980px; font-size:.92rem; font-weight:600;
+    background:var(--blue); color:#fff; transition:.2s ease; text-align:center;
+  }
+  .manual-btn:hover{background:var(--blue-deep);}
+  .manual-btn.secondary{background:var(--bg-soft); color:var(--ink);}
+  .manual-btn.secondary:hover{background:var(--line-soft);}
+  .manual-caps{
+    display:flex; gap:18px; font-size:.78rem; color:var(--ink-faint); margin-top:16px; flex-wrap:wrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar-backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <div class="brand"><span class="dot"></span>MY補助金パートナー</div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="閉じる"></button>
+  </div>
+  <ul class="sidebar-list">
+    <li><a href="#top" class="side-link">ホーム</a></li>
+    <li><a href="#about" class="side-link">省力化投資補助金とは</a></li>
+    <li><a href="#schedule" class="side-link">応募申請〜効果報告までの流れ</a></li>
+    <li><a href="#bonus" class="side-link">事業継続力強化計画</a></li>
+    <li><a href="#docs" class="side-link">必要書類 <span class="chev">›</span></a></li>
+  </ul>
+  <ul class="sidebar-sub">
+    <li><a href="#docs" class="side-link" data-tab-target="corp">法人</a></li>
+    <li><a href="#docs" class="side-link" data-tab-target="individual">個人事業主</a></li>
+  </ul>
+  <div class="sidebar-divider"></div>
+  <ul class="sidebar-list">
+    <li><a href="https://shoryokuka.smrj.go.jp/" target="_blank" rel="noopener">省力化投資補助金 公式HP ↗</a></li>
+  </ul>
+  <div class="sidebar-foot">Copyright © MY補助金パートナー, Inc.</div>
+</aside>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="burger" id="burgerBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+      <div class="brand"><span class="dot"></span>MY補助金パートナー</div>
+    </div>
+    <nav class="pills">
+      <a href="#about">制度とは</a>
+      <a href="#schedule">スケジュール</a>
+      <a href="#bonus">加点項目</a>
+      <a href="#docs">必要書類</a>
+    </nav>
+    <a class="nav-cta" href="#docs">書類を確認する</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">中小企業省力化投資補助金</span>
+      <h1 class="hero-title">申請サポート<span>ガイド</span></h1>
+      <p class="hero-lead">補助事業者様が迷わず申請を進められるよう、必要書類と手続きの流れをこのページ一つにまとめました。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#docs">必要書類を確認する</a>
+        <a class="btn btn-ghost" href="#about">制度について知る</a>
+      </div>
+
+      <div class="hero-cards">
+        <a class="path-card" href="#docs" data-tab-target="corp">
+          <span class="num">法人</span>
+          <h3>法人の方</h3>
+          <p>登記簿・決算書・役員名簿など全13項目の必要書類をご案内します。</p>
+          <span class="go">必要書類を見る
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </a>
+        <a class="path-card" href="#docs" data-tab-target="individual">
+          <span class="num">個人事業主</span>
+          <h3>個人事業主の方</h3>
+          <p>確定申告書・決算書類など全8項目の必要書類をご案内します。</p>
+          <span class="go">必要書類を見る
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <p class="hero-official">公式情報はこちら：<a href="https://shoryokuka.smrj.go.jp/" target="_blank" rel="noopener">中小企業省力化投資補助金 公式サイト ↗</a></p>
+    </div>
+  </section>
+
+  <section class="soft" id="about">
+    <div class="inner">
+      <span class="eyebrow">About</span>
+      <h2 class="title">中小企業省力化投資補助金とは</h2>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>中小企業等が人手不足の解消と業務効率化を目指して、現場に即した設備投資やシステム構築を行う際に利用できる補助制度です。</p>
+          <div class="quote">IoTやロボットなど、デジタル技術を活用した設備やシステムの導入を補助。現場の業務効率化、生産性向上、付加価値向上、賃上げを促進します。</div>
+          <p>申請から補助金の着金、そしてその後の実績報告までを含めると、中長期的な取り組みが前提となる制度です。まずは全体像を把握したうえで、必要書類のご準備を進めてください。</p>
+        </div>
+        <div class="diagram">
+          <span class="diagram-label">What it supports</span>
+          <div class="diagram-node"><span class="dot"></span><div><b>設備投資</b><span>IoT・ロボットなど省力化設備の導入</span></div></div>
+          <div class="diagram-node"><span class="dot"></span><div><b>業務効率化</b><span>現場オペレーションの見直しと自動化</span></div></div>
+          <div class="diagram-node"><span class="dot"></span><div><b>生産性向上</b><span>付加価値の創出につなげる</span></div></div>
+          <div class="diagram-node"><span class="dot"></span><div><b>賃上げ促進</b><span>成果を従業員へ還元する仕組みづくり</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <span class="eyebrow">Schedule</span>
+    <h2 class="title">応募申請〜効果報告までの流れ</h2>
+    <p class="lead">申請から補助金の着金、その後の報告義務までを見据えたスケジュール感をご理解のうえ、お取り組みください。</p>
+
+    <div class="timeline">
+      <div class="tl-step"><div class="marker">1</div><h4>申請準備</h4><p>必要書類の収集と各種フォームの入力を行います。</p></div>
+      <div class="tl-step"><div class="marker">2</div><h4>応募申請</h4><p>審査を経て採択の可否が決定します。</p></div>
+      <div class="tl-step"><div class="marker">3</div><h4>着金・事業実施</h4><p>採択後、事業計画にもとづき設備投資を実施します。</p></div>
+      <div class="tl-step"><div class="marker">4</div><h4>効果報告</h4><p>事業計画実施期間中、継続して国へ報告を行います。</p></div>
+    </div>
+
+    <div class="notice-box">
+      <span class="eyebrow">留意事項</span>
+      <ul>
+        <li>省力化補助金の申請から補助金着金までは、約1年〜2年ほどの期間を要します。</li>
+        <li>着金後も「事業計画実施期間」として原則5年間、国に報告をする必要があります。</li>
+        <li>本補助金は、申請して終わりではなく、実績報告および事業実施期間を含めた中長期的な対応が前提となる制度です。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="soft" id="bonus">
+    <div class="inner">
+      <span class="eyebrow">Bonus Point</span>
+      <h2 class="title">事業継続力強化計画とは</h2>
+      <p class="lead">自然災害や感染症が発生した際でも事業を継続・早期復旧するために、中小企業が事前に備える計画です。経済産業大臣が認定を行い、省力化補助金をはじめ多くの補助金で加点対象となります。</p>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <h4>認定を受けるメリット</h4>
+          <ul class="merit-list">
+            <li>税制優遇（設備投資の特別償却など）</li>
+            <li>金融支援（低利融資、保証枠の拡大など）</li>
+            <li>補助金申請時の加点</li>
+          </ul>
+          <p class="fine-print">※省力化補助金・ものづくり補助金など、多くの補助金にて加点対象となっています。</p>
+        </div>
+        <div class="bonus-card">
+          <h4>認定までの流れ</h4>
+          <ol class="steps-mini">
+            <li>中小企業庁の様式に沿って計画を作成</li>
+            <li>事業所を管轄する経済産業局へ申請</li>
+            <li>審査のうえ、認定通知が届く（通常1〜2ヶ月）</li>
+          </ol>
+          <div class="bonus-links">
+            <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html" target="_blank" rel="noopener">事業継続力強化計画（公式サイト）↗</a>
+            <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html#contact" target="_blank" rel="noopener">申請に関するお問い合わせ先 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs">
+    <span class="eyebrow">Documents Checklist</span>
+    <h2 class="title">必要書類チェックリスト</h2>
+    <p class="lead">該当する区分を選び、必要書類を確認しながらチェックを入れてご活用ください。チェックはこの端末に保存されます。</p>
+
+    <div class="docs-head">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="corp">法人</button>
+        <button class="tab-btn" data-tab="individual">個人事業主</button>
+      </div>
+      <div class="progress-widget">
+        <div class="ring">
+          <svg viewBox="0 0 52 52">
+            <circle class="bg" cx="26" cy="26" r="22"></circle>
+            <circle class="fg" id="ring-fg" cx="26" cy="26" r="22" stroke-dasharray="138.2" stroke-dashoffset="138.2"></circle>
+          </svg>
+          <div class="ring-label" id="ring-label">0%</div>
+        </div>
+        <div class="progress-text" id="progress-text">0 / 0 件 完了</div>
+      </div>
+    </div>
+
+    <!-- 法人 -->
+    <div class="doc-panel active" id="panel-corp">
+      <p class="doc-note">法人の方の必要書類です。各項目の注意事項を確認のうえご用意ください。</p>
+      <ul class="doc-list" id="list-corp">
+
+        <li class="doc-item" data-id="c1">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>フォーム入力</h5>
+            <p class="fmt">提出様式：フォーム入力後送信</p>
+            <p class="caveat">全2つのフォームにご入力ください。1つ目のフォーム送信後、2つ目のフォームURLが表示されます。</p>
+          </div>
+          <div class="doc-action"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfRDIeytcT4pXdFchSzjhHLHGp4LZKm0Qs-ZKLfmWdVLy7RTg/viewform?usp=publish-editor" target="_blank" rel="noopener">フォームを入力する</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c2">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>GビズIDプライム登録</h5>
+            <p class="fmt">提出様式：GビズIDの登録情報の画面キャプチャを提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="gbiz">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c3">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>決算書類一式（直近3期分）</h5>
+            <p class="fmt">提出様式：PDFファイルで提出</p>
+            <p class="caveat">「必要項目」を必ず確認のうえご提出ください。</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="kessan_corp">必要項目はこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c4">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>履歴事項全部証明書</h5>
+            <p class="fmt">提出様式：スキャンした書類をPDFファイルで提出</p>
+            <p class="caveat">省力化補助金申請日から遡って3か月以内に取得した書類のみ有効です。</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="rireki">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c5">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>納税証明書その2（直近3期分）</h5>
+            <p class="fmt">提出様式：スキャンした書類をPDFファイルで提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="nozei_corp">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c6">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>役員名簿（指定書式）</h5>
+            <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="yakuin">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c7">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>株主・出資者名簿（指定書式）</h5>
+            <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="kabunushi">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c8">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>1人当たりの給与支給総額の確認書（指定書式）</h5>
+            <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/法人/1人当たりの給与支給総額の確認書法人" target="_blank" rel="noopener">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c9">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>成長加速マッチングサービス登録</h5>
+            <p class="fmt">提出様式：登録済画面のキャプチャを提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="matching">登録する</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c10">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>ヒヤリングシート入力</h5>
+            <p class="fmt">ダウンロードしたExcelファイルに記入のうえ、弊社へファイルをご共有ください。</p>
+          </div>
+          <div class="doc-action"><a href="https://docs.google.com/spreadsheets/d/1qmLENA9ofTUqhm8ifbaIMA0pj3eBv25ZKBp5zICRdkc/export?format=xlsx" target="_blank" rel="noopener">ダウンロード</a></div>
+        </li>
+
+        <li class="doc-item" data-id="c11">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>省力化ナビ</h5>
+            <p class="fmt">提出様式：PDF</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="navi">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item optional" data-id="c12">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>事業実施場所が複数の場合 <span class="badge">任意</span></h5>
+            <p class="fmt">事業実施場所リスト（指定書式）を記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/個人事業主/事業実施場所リスト" target="_blank" rel="noopener">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item optional" data-id="c13">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>他の助成制度の利用実績がある場合 <span class="badge">任意</span></h5>
+            <p class="fmt">他の助成制度の利用実績確認書（指定書式）を記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/個人事業主/他の助成制度の利用実績" target="_blank" rel="noopener">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item optional" data-id="c14">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>事業承継又はM&amp;Aを実施したことがある場合 <span class="badge">任意</span></h5>
+            <p class="fmt">事業承継又はM&amp;Aを実施したことが分かる資料を提出</p>
+            <p class="caveat">※ご提出いただいた資料以外の提出やご対応をお願いする場合がございます。</p>
+          </div>
+          <div class="doc-action"></div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- 個人事業主 -->
+    <div class="doc-panel" id="panel-individual">
+      <p class="doc-note">個人事業主の方の必要書類です。各項目の注意事項を確認のうえご用意ください。</p>
+      <ul class="doc-list" id="list-individual">
+
+        <li class="doc-item" data-id="i1">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>フォーム入力</h5>
+            <p class="fmt">提出様式：フォーム入力後送信</p>
+          </div>
+          <div class="doc-action"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfRDIeytcT4pXdFchSzjhHLHGp4LZKm0Qs-ZKLfmWdVLy7RTg/viewform?usp=publish-editor" target="_blank" rel="noopener">フォームを入力する</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i2">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>GビズIDプライム登録</h5>
+            <p class="fmt">提出様式：GビズIDの登録情報の画面キャプチャを提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="gbiz">登録する</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i3">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>確定申告書第一表の控え（直近分）</h5>
+            <p class="fmt">提出様式：スキャンした書類をPDFファイルで提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="kakutei">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i4">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>決算書類一式（直近3期分）</h5>
+            <p class="fmt">青色申告の場合：青色申告決算書一式／白色申告の場合：白色申告収支内訳書一式（スキャンしてPDFで提出）</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="kessan_ko">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i5">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>納税証明書その2（直近分）</h5>
+            <p class="fmt">提出様式：スキャンした書類をPDFファイルで提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="nozei_ko">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i6">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>1人当たり給与支給総額の確認書（指定書式）</h5>
+            <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/個人事業主/1人当たりの給与支給総額の確認書個人" target="_blank" rel="noopener">詳しくはこちら</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i7">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>成長加速マッチングサービス登録</h5>
+            <p class="fmt">提出様式：登録済画面のキャプチャを提出</p>
+          </div>
+          <div class="doc-action"><a href="#" data-manual="matching">登録する</a></div>
+        </li>
+
+        <li class="doc-item" data-id="i8">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>ヒヤリングフォーム</h5>
+            <p class="fmt">ダウンロードしたExcelファイルに記入のうえ、弊社へファイルをご共有ください。</p>
+          </div>
+          <div class="doc-action"><a href="https://docs.google.com/spreadsheets/d/1qmLENA9ofTUqhm8ifbaIMA0pj3eBv25ZKBp5zICRdkc/export?format=xlsx" target="_blank" rel="noopener">ダウンロード</a></div>
+        </li>
+
+        <li class="doc-item optional" data-id="i9">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>事業実施場所が複数の場合 <span class="badge">任意</span></h5>
+            <p class="fmt">事業実施場所リスト（指定書式）を記入して提出</p>
+          </div>
+          <div class="doc-action"><a href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_project_location_list_ippan.xlsx" target="_blank" rel="noopener">ファイルをダウンロード</a></div>
+        </li>
+
+        <li class="doc-item optional" data-id="i10">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>他の助成制度の利用実績がある場合 <span class="badge">任意</span></h5>
+            <p class="fmt">他の助成制度の利用実績確認書（指定書式）を記入して提出</p>
+          </div>
+          <div class="doc-action"></div>
+        </li>
+
+        <li class="doc-item optional" data-id="i11">
+          <div class="check"></div>
+          <div class="doc-body">
+            <h5>事業承継又はM&amp;Aを実施したことがある場合 <span class="badge">任意</span></h5>
+            <p class="fmt">事業承継又はM&amp;Aを実施したことが分かる資料を提出</p>
+            <p class="caveat">※ご提出いただいた資料以外の提出やご対応をお願いする場合がございます。</p>
+          </div>
+          <div class="doc-action"></div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="brand"><span class="dot"></span>MY補助金パートナー</div>
+      <a class="back-top" href="#top">TOP へ戻る ↑</a>
+    </div>
+    <p class="copy">Copyright © MY補助金パートナー, Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<div class="manual-backdrop" id="manualBackdrop"></div>
+<div class="manual-modal" id="manualModal" role="dialog" aria-modal="true">
+  <div class="manual-head">
+    <div>
+      <span class="m-eyebrow" id="manualEyebrow">書類マニュアル</span>
+      <h3 id="manualTitle">タイトル</h3>
+    </div>
+    <button class="manual-close" id="manualClose" aria-label="閉じる"></button>
+  </div>
+  <div class="manual-body" id="manualBody"></div>
+</div>
+
+<script>
+(function(){
+  // Sidebar
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('backdrop');
+  var burgerBtn = document.getElementById('burgerBtn');
+  var closeBtn = document.getElementById('sidebarClose');
+
+  function openSidebar(){ sidebar.classList.add('open'); backdrop.classList.add('open'); }
+  function closeSidebar(){ sidebar.classList.remove('open'); backdrop.classList.remove('open'); }
+
+  burgerBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  backdrop.addEventListener('click', closeSidebar);
+  document.querySelectorAll('.side-link').forEach(function(l){
+    l.addEventListener('click', function(){ closeSidebar(); });
+  });
+
+  // ===== Manual overlay =====
+  var manualData = {
+    gbiz: {
+      eyebrow: "GビズIDプライム登録",
+      title: "GbizIDプライム",
+      html: '<p class="manual-lede">GビズIDは、すべての事業者を対象とした共通認証システムです。一つのID・パスワードで、複数の行政サービスにログインでき、補助金申請、社会保険手続、各種認可申請など業務上の電子届出や申請に使用できます。</p>'
+        + '<p>GビズIDには、GビズIDプライム、GビズIDメンバー、GビズIDエントリーという3種類のアカウントがありますが、申請に必要なアカウントはGビズIDプライムです。過去に取得していれば、新たに取得する必要はありません。</p>'
+        + '<div class="manual-section-title">代表者がマイナンバーカードを持っている場合【推奨】</div>'
+        + '<div class="manual-note">オンラインにて即日取得が可能です。スマートフォンアプリの登録が必須となります。</div>'
+        + '<div class="manual-section-title">代表者がマイナンバーカードを持っていない場合</div>'
+        + '<div class="manual-note">郵送手続きにて取得が可能です。取得までに１〜2週間かかりますため、お早めにご準備ください。スマートフォンアプリの登録が必須となります。</div>'
+        + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
+        + '<div class="manual-actions">'
+        + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
+        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/1LhXT5UqMj0XJfvYsuwy_xqmnARV2PLdW/view" target="_blank" rel="noopener">取得マニュアルを見る</a>'
+        + '</div>'
+    },
+    kessan_corp: {
+      eyebrow: "決算書類一式（直近3期分）",
+      title: "決算書一式 - 必要項目 -",
+      html: '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>決算報告書（一式）</li><li>法人税確定申告書（一式）</li><li>勘定科目内訳明細書（一式）</li><li>法人事業概況説明書（一式）</li><li>減価償却の内訳書（一式）※横向き</li></ul>'
+        + '<div class="manual-note"><b>直近3期分</b>をご用意ください。設立から3期を迎えていない場合は、経過した決算分のみご提出ください。一度も決算を迎えていない場合は申請できません。</div>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+    },
+    rireki: {
+      eyebrow: "履歴事項全部証明書",
+      title: "履歴事項全部証明書",
+      html: '<p class="manual-lede">法務局でご取得いただけます。</p>'
+        + '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>履歴事項全部証明書であること</li><li>発行日が、省力化補助金申請日より3か月以内であること</li><li>全ページそろっていること</li></ul>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+        + '<div class="manual-actions">'
+        + '<a class="manual-btn" href="https://www.moj.go.jp/MINJI/minji10.html" target="_blank" rel="noopener">法務局一覧サイト（公式）</a>'
+        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/1J6vwKVa3wX8aGds-JQ3Zn6zXh_2dFaID/view" target="_blank" rel="noopener">取得マニュアルを見る</a>'
+        + '</div>'
+    },
+    nozei_corp: {
+      eyebrow: "納税証明書その2（直近3期分）",
+      title: "納税証明書（その2）",
+      html: '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>税目が「法人税」であること</li><li>納税証明書「その２」であること</li><li>直近3期分の納税証明書であること</li><li>税務署が発行していること</li></ul>'
+        + '<div class="manual-note">直近3期分をご用意ください。設立から3期を迎えていない場合は、経過した決算分のみご提出ください。一度も決算を迎えていない場合は申請できません。</div>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+    },
+    yakuin: {
+      eyebrow: "役員名簿（指定書式）",
+      title: "役員名簿",
+      html: '<p class="manual-lede">入力用ファイルをダウンロードしてご入力ください。</p>'
+        + '<div class="manual-warn">応募申請時点の全役員の情報を記載してください。大企業・みなし大企業に所属する役員にはチェックを入れてください。株式会社以外の組織形態では、役員にあたる役職の情報を記載してください。</div>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_officer_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
+    },
+    kabunushi: {
+      eyebrow: "株主・出資者名簿（指定書式）",
+      title: "株主・出資者名簿",
+      html: '<p class="manual-lede">入力用ファイルをダウンロードしてご入力ください。</p>'
+        + '<div class="manual-warn">応募申請時点の全株主出資者の情報を記載してください。大企業・みなし大企業に所属している者にはチェックを入れてください。「株保有数・出資価格」の合計が「総株式発行数・出資価格総額」と一致するようにしてください。</div>'
+        + '<p style="font-size:.86rem;color:var(--ink-faint);">※株主・出資者が21名以上の場合、全員分の入力は不要です。株保有数・出資価格が多い方から20名の情報を入力してください。</p>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_shareholder_investor_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
+    },
+    matching: {
+      eyebrow: "成長加速マッチングサービス登録",
+      title: "成長加速マッチングサービス",
+      html: '<p class="manual-lede">中小企業庁が運営する、事業拡大や新規事業立ち上げなどの成長志向を持つ事業者が支援者とつながることができる公的マッチングプラットフォームです。</p>'
+        + '<div class="manual-warn">GビズIDプライムでログインしてください。作業時間の目安は約15分です。挑戦課題を必ず1件以上登録し、ステータスが「掲載中」となっている必要があります。</div>'
+        + '<p style="font-size:.86rem;color:var(--ink-faint);">登録が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</p>'
+        + '<div class="manual-actions">'
+        + '<a class="manual-btn" href="https://mirasapo-connect.go.jp/corporation" target="_blank" rel="noopener">成長加速マッチングに登録する</a>'
+        + '<a class="manual-btn secondary" href="https://app-na2.hubspotdocuments.com/documents/47272255/view/1534341823?accessId=4ae7a0" target="_blank" rel="noopener">登録マニュアルを見る</a>'
+        + '</div>'
+    },
+    navi: {
+      eyebrow: "省力化ナビ",
+      title: "省力化ナビ",
+      html: '<p class="manual-lede">何から取り組めばいいかわからない方から、具体的な解決策を知りたい事業者まで、省力化・生産性向上への取り組みを後押しするツールです。</p>'
+        + '<div class="manual-warn">GビズIDプライム登録しているメールアドレス、企業名、担当者名を入力してください。作業時間の目安は約5分。補助金の加点に使用するため、全て入力が必須です。</div>'
+        + '<div class="manual-actions">'
+        + '<a class="manual-btn" href="https://labour-saving.smrj.go.jp/" target="_blank" rel="noopener">省力化ナビを登録する</a>'
+        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/12BAm0sm4zsB_bupuG45_r_EO1VhvOCcC/view?usp=sharing" target="_blank" rel="noopener">登録マニュアルを見る</a>'
+        + '</div>'
+    },
+    kakutei: {
+      eyebrow: "確定申告書第一表の控え（直近分）",
+      title: "確定申告書の控え（第一表）",
+      html: '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>直近の確定申告書であること</li><li>所得税の確定申告書であること</li><li>税務署での受領が確認できること（電子申告の印字または受領印）</li><li>受領が確認できない場合、受信通知があること</li></ul>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+    },
+    kessan_ko: {
+      eyebrow: "決算書類一式（直近3期分）",
+      title: "決算書類",
+      html: '<div class="manual-section-title">青色申告の場合</div>'
+        + '<p>青色申告決算書一式をご提出ください。（全ページ）</p>'
+        + '<div class="manual-section-title">白色申告の場合</div>'
+        + '<p>白色申告収支内訳書一式をご提出ください。（全ページ）</p>'
+        + '<div class="manual-note">直近3期分をご用意ください。設立から3期を迎えていない場合は、経過した決算分のみご提出ください。一度も決算を迎えていない場合は申請できません。書類はすべてスキャンのうえPDFデータにてご提出ください。</div>'
+    },
+    nozei_ko: {
+      eyebrow: "納税証明書その2（直近分）",
+      title: "納税証明書（その2）",
+      html: '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>直近の納税証明書であること</li><li>税目が「所得税」であること</li><li>税務署が発行していること</li></ul>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。直近1期分のみご提出ください。</p>'
+    }
+  };
+
+  var manualBackdrop = document.getElementById('manualBackdrop');
+  var manualModal = document.getElementById('manualModal');
+  var manualClose = document.getElementById('manualClose');
+  var manualTitle = document.getElementById('manualTitle');
+  var manualEyebrow = document.getElementById('manualEyebrow');
+  var manualBody = document.getElementById('manualBody');
+
+  function openManual(key){
+    var d = manualData[key];
+    if(!d) return;
+    manualEyebrow.textContent = d.eyebrow;
+    manualTitle.textContent = d.title;
+    manualBody.innerHTML = d.html;
+    manualBody.scrollTop = 0;
+    manualBackdrop.classList.add('open');
+    manualModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeManual(){
+    manualBackdrop.classList.remove('open');
+    manualModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  manualBackdrop.addEventListener('click', closeManual);
+  manualClose.addEventListener('click', closeManual);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeManual(); });
+
+  document.querySelectorAll('[data-manual]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      openManual(btn.dataset.manual);
+    });
+  });
+
+  // Tab switching
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = { corp: document.getElementById('panel-corp'), individual: document.getElementById('panel-individual') };
+
+  function setTab(key){
+    tabBtns.forEach(function(b){ b.classList.toggle('active', b.dataset.tab === key); });
+    Object.keys(panels).forEach(function(k){ panels[k].classList.toggle('active', k === key); });
+    updateProgress();
+  }
+  tabBtns.forEach(function(b){ b.addEventListener('click', function(){ setTab(b.dataset.tab); }); });
+  document.querySelectorAll('[data-tab-target]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var target = el.dataset.tabTarget;
+      setTimeout(function(){ setTab(target); }, 50);
+    });
+  });
+
+  // Checklist persistence
+  var STORAGE_KEY = 'syoryokuka-checklist-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ state = {}; }
+
+  function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){} }
+
+  function activeList(){
+    var active = document.querySelector('.doc-panel.active');
+    return active ? active.querySelectorAll('.doc-item') : [];
+  }
+
+  function updateProgress(){
+    var items = activeList();
+    var total = items.length, done = 0;
+    items.forEach(function(item){
+      var id = item.dataset.id;
+      var checked = !!state[id];
+      item.classList.toggle('done', checked);
+      item.querySelector('.check').classList.toggle('checked', checked);
+      if(checked) done++;
+    });
+    var pct = total ? Math.round((done/total)*100) : 0;
+    var circumference = 138.2;
+    var offset = circumference - (pct/100)*circumference;
+    document.getElementById('ring-fg').style.strokeDashoffset = offset;
+    document.getElementById('ring-label').textContent = pct + '%';
+    document.getElementById('progress-text').innerHTML = '<b>' + done + '</b> / ' + total + ' 件 完了';
+  }
+
+  document.querySelectorAll('.doc-item .check').forEach(function(box){
+    box.addEventListener('click', function(){
+      var item = box.closest('.doc-item');
+      var id = item.dataset.id;
+      state[id] = !state[id];
+      save();
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
