@@ -499,6 +499,10 @@
   .sr-terms{font-size:.78rem; margin-bottom:14px;}
   .sr-terms a{color:var(--blue); text-decoration:underline; text-underline-offset:2px;}
   .sr-checkbox-row{display:flex; align-items:center; gap:10px; font-size:.86rem; color:var(--ink); position:relative;}
+  .mock-btn.secondary-chip{
+    background:var(--bg-soft2); color:var(--ink-soft); border:1.4px solid var(--line);
+    border-radius:980px; padding:8px 16px; font-size:.78rem; font-weight:600; display:inline-block;
+  }
 </style>
 </head>
 <body>
@@ -697,7 +701,7 @@
             <h5>GビズIDプライム登録</h5>
             <p class="fmt">提出様式：GビズIDの登録情報の画面キャプチャを提出</p>
           </div>
-          <div class="doc-action"><a href="#" data-manual="gbiz">詳しくはこちら</a></div>
+          <div class="doc-action"><a href="#" data-manual="gbiz_corp">詳しくはこちら</a></div>
         </li>
 
         <li class="doc-item" data-id="c3">
@@ -834,7 +838,7 @@
             <h5>GビズIDプライム登録</h5>
             <p class="fmt">提出様式：GビズIDの登録情報の画面キャプチャを提出</p>
           </div>
-          <div class="doc-action"><a href="#" data-manual="gbiz">登録する</a></div>
+          <div class="doc-action"><a href="#" data-manual="gbiz_indiv">登録する</a></div>
         </li>
 
         <li class="doc-item" data-id="i3">
@@ -967,30 +971,29 @@
 
   // ===== Manual overlay =====
   var manualData = {
-    gbiz: {
-      eyebrow: "GビズIDプライム登録",
-      title: "GbizIDプライム",
+    gbiz_corp: {
+      eyebrow: "GビズIDプライム登録（法人）",
+      title: "GbizIDプライム（法人）",
       html: '<p class="manual-lede">GビズIDは、すべての事業者を対象とした共通認証システムです。一つのID・パスワードで、複数の行政サービスにログインでき、補助金申請、社会保険手続、各種認可申請など業務上の電子届出や申請に使用できます。</p>'
         + '<p>GビズIDには、GビズIDプライム、GビズIDメンバー、GビズIDエントリーという3種類のアカウントがありますが、申請に必要なアカウントはGビズIDプライムです。過去に取得していれば、新たに取得する必要はありません。</p>'
         + '<div class="manual-section-title">代表者がマイナンバーカードを持っている場合【推奨】</div>'
-        + '<div class="manual-note">オンラインにて即日取得が可能です。スマートフォンアプリの登録が必須となります。</div>'
+        + '<div class="manual-note">オンラインにて最短即日取得が可能です。事前にスマートフォンへ「GビズIDアプリ」のインストールが必須です。</div>'
         + '<div class="manual-section-title">代表者がマイナンバーカードを持っていない場合</div>'
-        + '<div class="manual-note">郵送手続きにて取得が可能です。取得までに１〜2週間かかりますため、お早めにご準備ください。スマートフォンアプリの登録が必須となります。</div>'
+        + '<div class="manual-note">印鑑証明書と申請書の郵送手続きにて取得可能です。審査完了まで最大1か月かかりますため、お早めにご準備ください。</div>'
         + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
-        + '<button class="manual-btn secondary" data-open-steps="gbiz">取得マニュアルを見る</button>'
+        + '<button class="manual-btn secondary" data-open-steps="gbiz_corp">取得マニュアルを見る</button>'
         + '</div>'
         + '<div class="manual-caps">'
-        + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_corporation.pdf" target="_blank" rel="noopener" style="color:var(--blue);">実際の画面つき公式マニュアル（法人・PDF）↗</a>'
-        + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_sole-proprietor.pdf" target="_blank" rel="noopener" style="color:var(--blue);">実際の画面つき公式マニュアル（個人事業主・PDF）↗</a>'
+        + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_corporation.pdf" target="_blank" rel="noopener" style="color:var(--blue);">公式クイックマニュアル 法人代表者編（PDF）↗</a>'
         + '</div>',
-      stepsTitle: "GビズIDプライム 取得マニュアル",
+      stepsTitle: "GビズIDプライム 取得マニュアル（法人・オンライン申請）",
       steps: [
-        {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で、署名用電子証明書が搭載されているマイナンバーカードが必要です。読み取り用にスマートフォンも手元に用意してください。"},
-        {tag:"STEP 1", title:"GビズIDアプリをインストール", desc:"スマートフォンでApp Store（iOS）またはGoogle Play（Android）から「GビズIDアプリ」を検索し、インストールします。"},
-        {tag:"STEP 2", title:"オンライン申請を開始する", desc:"gbiz-id.go.jp にアクセスし「GビズIDアカウント申請」→ 事前チェックの設問に回答すると、「オンライン申請を開始する」ボタンが表示されます。"},
-        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"最初に表示されるのが「メールアドレス入力」画面です。ここが最初につまずきやすいポイントなので、実際の画面の文言そのままで再現しました。",
+        {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で署名用電子証明書が搭載されたマイナンバーカードが必要です。事前にスマホでApp Store／Google Playから「GビズIDアプリ」をインストールしてください。"},
+        {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」→「事前チェックに進む」と進み、「法人代表者、府省・地方公共団体職員」を選んで「次へ」を押します。"},
+        {tag:"STEP 2", title:"マイナンバーカードの確認に答える", desc:"暗証番号を覚えているか等の質問に「持っている／覚えている」を選び「次へ」を繰り返すと、「オンライン申請を開始する」ボタンが表示されます。"},
+        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"最初の入力画面です。公式サイトの実際の文言そのままで再現しています。",
           mock:'<div class="screen-recreate">'
             + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
             + '<div class="sr-breadcrumb"><span class="sr-crumb active">申請開始</span><span class="sr-crumb-arrow">›</span><span class="sr-crumb">アカウント登録完了</span></div>'
@@ -1002,19 +1005,122 @@
             + '<span class="sr-help">メール受信可能なメールアドレスを入力してください　例：abc@gbizid.co.jp</span></div>'
             + '<div class="sr-terms"><a>利用規約を確認する</a> ／ <a>プライバシーポリシーを確認する</a></div>'
             + '<div class="sr-field"><div class="sr-checkbox-row"><span class="mock-checkbox"></span>規約に同意する<span class="mock-callout">2</span></div></div>'
+            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">3</span></span></div>'
             + '</div></div>'
             + '<div class="mock-legend">'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力（これがそのままGビズIDのログインIDになります）</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>利用規約・プライバシーポリシーへのリンクを確認し、チェックを入れて次へ進みます</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力（そのままGビズIDのログインIDになります）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>GビズIDサービス利用規約を確認し、チェックを入れる</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>ボタンを押すと確認画面へ。その後「この内容で送信する」を押すとワンタイムパスワードがメールで届きます（30分以内に入力）</div>'
             + '</div>'
-            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※gbiz-id.go.jp の実際の画面文言をもとに再現したものです（色・レイアウトは簡略化しています）</p>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※gbiz-id.go.jp公式クイックマニュアル（法人代表者編）の記載内容をもとに再現しています</p>'
         },
-        {tag:"STEP 4", title:"基本情報・パスワードを入力", desc:"届いたワンタイムパスワードを入力後、企業（または個人事業主）の基本情報とアカウント利用者情報、GビズIDのログインパスワードを設定します。"},
-        {tag:"STEP 5", title:"アプリで申請情報に電子署名", desc:"画面に表示されるQRコードをスマホのGビズIDアプリで読み取り、申請情報に電子署名します。"},
-        {tag:"STEP 6", title:"審査", desc:"申請情報と登記情報が一致していれば、最短即日で審査が完了します（府省・地方公共団体の申請は時間を要します）。"},
-        {tag:"STEP 7", title:"アプリにアカウントを登録（アプリ認証）", desc:"審査完了メールが届いたら、案内に沿ってGビズIDアプリに利用アカウントを登録します。"},
-        {tag:"STEP 8", title:"SMSによる本人確認", desc:"最後にSMSで届くワンタイムパスワードを入力して本人確認を行うと、アカウントが発行されます。"},
-        {tag:"完了", title:"アカウント発行・キャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+        {tag:"STEP 4", title:"基本情報・パスワードを入力する", desc:"ワンタイムパスワード入力後に表示される、法人代表者向けの入力フォームです。実際の項目名をそのまま再現しています。",
+          mock:'<div class="screen-recreate">'
+            + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
+            + '<div class="sr-body">'
+            + '<h5 class="sr-h">基本情報の入力</h5>'
+            + '<p class="sr-p" style="margin-bottom:12px;">事業者基本情報</p>'
+            + '<div class="sr-field"><span class="sr-label">法人番号<span class="sr-required">※必須</span></span><div class="sr-input">13桁の法人番号</div></div>'
+            + '<div class="sr-field"><span class="sr-label">法人名<span class="sr-required">※必須</span></span><div class="sr-input">「法人情報取得」ボタンで自動入力<span class="mock-callout">1</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">事業所所在地<span class="sr-required">※必須</span></span><div class="sr-input">「法人情報取得」ボタンで自動入力</div></div>'
+            + '<div class="sr-field"><span class="sr-label">代表者氏名フリガナ<span class="sr-required">※必須</span></span><div class="sr-input">ヤマダ タロウ</div></div>'
+            + '<p class="sr-p" style="margin:18px 0 12px;">アカウント利用者情報</p>'
+            + '<div class="sr-field"><span class="sr-label">連絡先郵便番号<span class="sr-required">※必須</span></span><div class="sr-input">000-0000</div></div>'
+            + '<div class="sr-field"><span class="sr-label">連絡先住所<span class="sr-required">※必須</span></span><div class="sr-input">郵送物の送付先になります<span class="mock-callout">2</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">SMS受信用電話番号<span class="sr-required">※必須</span></span><div class="sr-input">ワンタイムパスワードの受信先<span class="mock-callout">3</span></div></div>'
+            + '<p class="sr-p" style="margin:18px 0 12px;">GビズIDログインパスワード</p>'
+            + '<div class="sr-field"><span class="sr-label">パスワード／確認用パスワード<span class="sr-required">※必須</span></span><div class="sr-input">••••••••</div></div>'
+            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">4</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>法人番号を入れて「法人情報取得」ボタンを押すと、法人名・所在地が自動入力されます</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>郵送物（申請書など）が届く住所です。会社所在地と異なってもOK</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>この番号にワンタイムパスワードのSMSが届きます。携帯・スマホの番号を入力</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">4</span>旧字体・異体字（髙など）は登録できない場合があります。代替漢字（髙→高）に置き換えてください</div>'
+            + '</div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※公式クイックマニュアル（法人代表者編）12ページの実際の入力項目をもとに再現しています</p>'
+        },
+        {tag:"STEP 5", title:"申請内容を確認して登録する", desc:"内容を確認し「この内容で登録する」を押すと、まずGビズIDエントリーアカウントが作成されます。入力したメールアドレス・パスワードでマイページにログインできるようになります。"},
+        {tag:"STEP 6", title:"アプリでQRコードを読み取り電子署名", desc:"画面に表示されたQRコードをスマホのGビズIDアプリで読み取り、マイナンバーカードを使って申請情報に電子署名します（QRコードの有効期限は10分）。"},
+        {tag:"STEP 7", title:"審査（最短即日）", desc:"PCの画面に戻り「この内容で登録する」を押すと審査が始まります。操作は不要でそのまま待ちます。審査完了後は「アプリ認証を設定する」を押します。"},
+        {tag:"STEP 8", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
+        {tag:"STEP 9", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
+        {tag:"完了", title:"マイページをキャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+      ]
+    },
+    gbiz_indiv: {
+      eyebrow: "GビズIDプライム登録（個人事業主）",
+      title: "GbizIDプライム（個人事業主）",
+      html: '<p class="manual-lede">GビズIDは、すべての事業者を対象とした共通認証システムです。一つのID・パスワードで、複数の行政サービスにログインでき、補助金申請、社会保険手続、各種認可申請など業務上の電子届出や申請に使用できます。</p>'
+        + '<p>GビズIDには、GビズIDプライム、GビズIDメンバー、GビズIDエントリーという3種類のアカウントがありますが、申請に必要なアカウントはGビズIDプライムです。過去に取得していれば、新たに取得する必要はありません。</p>'
+        + '<div class="manual-section-title">マイナンバーカードを持っている場合【推奨】</div>'
+        + '<div class="manual-note">オンラインにて最短即日取得が可能です。事前にスマートフォンへ「GビズIDアプリ」のインストールが必須です。</div>'
+        + '<div class="manual-section-title">マイナンバーカードを持っていない場合</div>'
+        + '<div class="manual-note">印鑑登録証明書と申請書の郵送手続きにて取得可能です。審査完了まで原則1か月以内かかりますため、お早めにご準備ください。</div>'
+        + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
+        + '<div class="manual-actions">'
+        + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
+        + '<button class="manual-btn secondary" data-open-steps="gbiz_indiv">取得マニュアルを見る</button>'
+        + '</div>'
+        + '<div class="manual-caps">'
+        + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_sole-proprietor.pdf" target="_blank" rel="noopener" style="color:var(--blue);">公式クイックマニュアル 個人事業主編（PDF）↗</a>'
+        + '</div>',
+      stepsTitle: "GビズIDプライム 取得マニュアル（個人事業主・オンライン申請）",
+      steps: [
+        {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で署名用電子証明書が搭載されたマイナンバーカードが必要です。事前にスマホでApp Store／Google Playから「GビズIDアプリ」をインストールしてください。"},
+        {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」と進み、「個人事業主」を選んで「次へ」を押します。"},
+        {tag:"STEP 2", title:"マイナンバーカードの確認に答える", desc:"「事前チェックに進む」→暗証番号を覚えているか等の質問に「持っている／覚えている」を選び「次へ」を繰り返すと、「オンライン申請を開始する」ボタンが表示されます。"},
+        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"最初の入力画面です。公式サイトの実際の文言そのままで再現しています。",
+          mock:'<div class="screen-recreate">'
+            + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
+            + '<div class="sr-breadcrumb"><span class="sr-crumb active">申請開始</span><span class="sr-crumb-arrow">›</span><span class="sr-crumb">アカウント登録完了</span></div>'
+            + '<div class="sr-body">'
+            + '<h5 class="sr-h">メールアドレス入力</h5>'
+            + '<p class="sr-p">はじめに、メールアドレスの所有確認を行います。入力いただいたメールアドレスは、今後ご利用いただくGビズIDプライムアカウントのアカウントIDとなります。</p>'
+            + '<div class="sr-field"><span class="sr-label">アカウントID（メールアドレス）<span class="sr-required">※必須</span><span class="mock-callout">1</span></span>'
+            + '<div class="sr-input">メールアドレス</div>'
+            + '<span class="sr-help">メール受信可能なメールアドレスを入力してください　例：abc@gbizid.co.jp</span></div>'
+            + '<div class="sr-terms"><a>利用規約を確認する</a> ／ <a>プライバシーポリシーを確認する</a></div>'
+            + '<div class="sr-field"><div class="sr-checkbox-row"><span class="mock-checkbox"></span>規約に同意する<span class="mock-callout">2</span></div></div>'
+            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">3</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力（そのままGビズIDのログインIDになります）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>GビズIDサービス利用規約を確認し、チェックを入れる</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>ボタンを押すと確認画面へ。その後「この内容で送信する」を押すとワンタイムパスワードがメールで届きます（30分以内に入力）</div>'
+            + '</div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※gbiz-id.go.jp公式クイックマニュアル（個人事業主編）の記載内容をもとに再現しています</p>'
+        },
+        {tag:"STEP 4", title:"基本情報・パスワードを入力する", desc:"ワンタイムパスワード入力後に表示される、個人事業主向けの入力フォームです。法人と違い、法人番号や登記情報は不要で項目が少なめです。",
+          mock:'<div class="screen-recreate">'
+            + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
+            + '<div class="sr-body">'
+            + '<h5 class="sr-h">基本情報の入力</h5>'
+            + '<p class="sr-p" style="margin-bottom:12px;">事業者基本情報</p>'
+            + '<div class="sr-field"><span class="sr-label">屋号<span class="sr-required">※必須</span></span><div class="sr-input">屋号がない場合は個人名でも可<span class="mock-callout">1</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">代表者氏名フリガナ<span class="sr-required">※必須</span></span><div class="sr-input">ヤマダ タロウ</div></div>'
+            + '<p class="sr-p" style="margin:18px 0 12px;">アカウント利用者情報</p>'
+            + '<div class="sr-field"><span class="sr-label">連絡先郵便番号<span class="sr-required">※必須</span></span><div class="sr-input">000-0000</div></div>'
+            + '<div class="sr-field"><span class="sr-label">連絡先住所<span class="sr-required">※必須</span></span><div class="sr-input">郵送物の送付先になります<span class="mock-callout">2</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">SMS受信用電話番号<span class="sr-required">※必須</span></span><div class="sr-input">ワンタイムパスワードの受信先<span class="mock-callout">3</span></div></div>'
+            + '<p class="sr-p" style="margin:18px 0 12px;">GビズIDログインパスワード</p>'
+            + '<div class="sr-field"><span class="sr-label">パスワード／確認用パスワード<span class="sr-required">※必須</span></span><div class="sr-input">••••••••</div></div>'
+            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">4</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>屋号がなければ空欄のままで問題ありません（後の書類提出内容と一致させると安心です）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>郵送物（申請書など）が届く住所です</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>この番号にワンタイムパスワードのSMSが届きます。携帯・スマホの番号を入力</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">4</span>旧字体・異体字（髙など）は登録できない場合があります。代替漢字（髙→高）に置き換えてください</div>'
+            + '</div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※公式クイックマニュアル（個人事業主編）12ページの実際の入力項目をもとに再現しています</p>'
+        },
+        {tag:"STEP 5", title:"申請内容を確認して登録する", desc:"内容を確認し「この内容で登録する」を押すと、まずGビズIDエントリーアカウントが作成されます。入力したメールアドレス・パスワードでマイページにログインできるようになります。"},
+        {tag:"STEP 6", title:"アプリでQRコードを読み取り電子署名", desc:"画面に表示されたQRコードをスマホのGビズIDアプリで読み取り、マイナンバーカードを使って申請情報に電子署名します（QRコードの有効期限は10分）。"},
+        {tag:"STEP 7", title:"アカウント登録・アプリ認証", desc:"PCの画面に戻り「この内容で登録する」を押すと入力情報が登録されます。続けて「アプリ認証を設定する」を押します。"},
+        {tag:"STEP 8", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
+        {tag:"STEP 9", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
+        {tag:"完了", title:"マイページをキャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
       ]
     },
     kessan_corp: {
@@ -1087,35 +1193,55 @@
     matching: {
       eyebrow: "成長加速マッチングサービス登録",
       title: "成長加速マッチングサービス",
-      html: '<p class="manual-lede">中小企業庁が運営する、事業拡大や新規事業立ち上げなどの成長志向を持つ事業者が支援者とつながることができる公的マッチングプラットフォームです。</p>'
-        + '<div class="manual-warn">GビズIDプライムでログインしてください。作業時間の目安は約15分です。挑戦課題を必ず1件以上登録し、ステータスが「掲載中」となっている必要があります。</div>'
+      html: '<p class="manual-lede">中小企業庁が運営する、事業拡大や新規事業立ち上げなどの成長志向を持つ事業者が、金融機関・投資機関・認定支援機関などの支援者とつながることができる公的マッチングプラットフォームです。</p>'
+        + '<div class="manual-warn">利用にはGビズIDプライムまたはGビズIDメンバーが必要です（GビズIDエントリーは対象外）。作業時間の目安は約15分です。応募締切日時点で挑戦課題を1件以上「掲載中」にしておく必要があります。</div>'
         + '<p style="font-size:.86rem;color:var(--ink-faint);">登録が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</p>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://mirasapo-connect.go.jp/corporation" target="_blank" rel="noopener">成長加速マッチングに登録する</a>'
         + '<button class="manual-btn secondary" data-open-steps="matching">登録マニュアルを見る</button>'
-        + '</div>'
-        + '<div class="manual-caps">'
-        + '<a href="https://app-na2.hubspotdocuments.com/documents/47272255/view/1534341823?accessId=4ae7a0" target="_blank" rel="noopener" style="color:var(--blue);">実際の画面つき公式マニュアルを見る ↗</a>'
         + '</div>',
       stepsTitle: "成長加速マッチング 登録マニュアル",
       steps: [
-        {tag:"STEP 1", title:"GビズIDプライムでログイン", desc:"mirasapo-connect.go.jp（成長加速マッチング）にアクセスし、GビズIDプライムでログインします。"},
-        {tag:"STEP 2", title:"企業情報を入力", desc:"基本情報や事業内容など、企業プロフィールを入力して登録します。"},
-        {tag:"STEP 3", title:"挑戦課題を登録", desc:"「今、取り組みたいこと・挑戦したいこと」を1件以上登録します。省力化補助金の加点にはこの登録が必須です。",
-          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
-            + '<div class="mock-body">'
-            + '<div class="mock-field"><span class="mock-label">挑戦したいこと</span><div class="mock-input">例）IoT機器の導入による現場業務の省力化<span class="mock-callout">1</span></div></div>'
-            + '<div class="mock-field"><span class="mock-label">公開ステータス</span><div class="mock-input checkbox-row"><span class="mock-checkbox"></span>掲載中にする<span class="mock-callout">2</span></div></div>'
-            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">保存する<span class="mock-callout">3</span></span></div>'
+        {tag:"STEP 1", title:"新規会員登録・ログイン", desc:"mirasapo-connect.go.jp のトップ画面にある「新規登録・ログイン」ボタンを押し、GビズIDとパスワードでログインします。ログイン後の会員登録画面では、GビズIDに登録済みの情報が自動で引き継がれる項目があります。"},
+        {tag:"STEP 2", title:"挑戦課題を登録する", desc:"企業プロフィールの入力後、挑戦課題の登録に進みます。まず「挑戦カテゴリー」を選び、カテゴリーに応じた入力項目に答えていきます。",
+          mock:'<div class="screen-recreate">'
+            + '<div class="sr-topbar"><span class="sr-logo">成長加速マッチングサービス</span></div>'
+            + '<div class="sr-body">'
+            + '<h5 class="sr-h">挑戦課題の登録</h5>'
+            + '<p class="sr-p">挑戦カテゴリーを選択してください<span class="mock-callout">1</span></p>'
+            + '<div class="sr-field" style="display:flex;gap:8px;flex-wrap:wrap;">'
+            + '<span class="mock-btn secondary-chip">資金調達</span><span class="mock-btn secondary-chip">事業承継（後継者あり）</span><span class="mock-btn secondary-chip">事業承継（後継者なし）</span><span class="mock-btn secondary-chip">経営相談</span>'
+            + '</div>'
+            + '<p class="sr-p" style="margin-top:20px;">例：カテゴリー「資金調達」を選んだ場合</p>'
+            + '<div class="sr-field"><span class="sr-label">資金調達の目的<span class="sr-required">※必須</span></span><div class="sr-input">新規事業の立ち上げ／設備投資／販路拡大 など（複数選択可）</div></div>'
+            + '<div class="sr-field"><span class="sr-label">挑戦課題のタイトル<span class="sr-required">※必須</span></span><div class="sr-input">50文字まで<span class="mock-callout">2</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">資金調達の目的・詳細<span class="sr-required">※必須</span></span><div class="sr-input">500文字まで<span class="mock-callout">3</span></div></div>'
+            + '<div class="sr-field"><span class="sr-label">希望する資金調達の種類<span class="sr-required">※必須</span></span><div class="sr-input">融資／出資（増資）／出資（過半数売却）／出資（半数未満売却）</div></div>'
+            + '<div class="sr-field" style="margin-bottom:0;"><span class="sr-label">公開範囲<span class="sr-required">※必須</span></span><div class="sr-input">銀行・投資機関・税理士・中小企業診断士 など（複数選択可）</div></div>'
             + '</div></div>'
             + '<div class="mock-legend">'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>取り組みたい内容を具体的に記入（省力化補助金の申請内容と関連づけると◎）</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>「下書き」のままだと加点対象になりません。必ず「掲載中」に設定</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>保存すると、マイページに登録内容が表示されます</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>挑戦カテゴリーは「資金調達」「事業承継（後継者あり／なし）」「経営相談」の4種類。相談したい内容に近いものを選ぶ</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>支援機関が最初に目にする部分。課題を具体的にひと言で表すと反応率が上がる</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>現状・数字・希望する支援内容を具体的に書くほど、相性の良い支援機関とマッチしやすい</div>'
+            + '</div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※選択できるカテゴリーと入力項目は公式サービスの案内内容をもとに再現しています</p>'
+        },
+        {tag:"STEP 3", title:"追加情報を登録する", desc:"挑戦課題の登録後、事業内容や強みなどの追加情報を登録します。ここを充実させておくほど、支援機関とのマッチング率が上がるとされています。"},
+        {tag:"STEP 4", title:"掲載ステータスを確認する", desc:"マイページで、登録した挑戦課題のステータスを確認します。",
+          mock:'<div class="screen-recreate">'
+            + '<div class="sr-topbar"><span class="sr-logo">成長加速マッチングサービス</span></div>'
+            + '<div class="sr-body">'
+            + '<h5 class="sr-h">マイページ - 挑戦課題一覧</h5>'
+            + '<div class="sr-field" style="display:flex;align-items:center;justify-content:space-between;background:var(--bg-soft2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;">'
+            + '<span style="font-size:.86rem;">環境配慮型製品の市場拡大に向けた設備投資資金の調達</span>'
+            + '<span style="font-size:.7rem;font-weight:700;color:#fff;background:var(--ok);padding:4px 12px;border-radius:980px;">掲載中<span class="mock-callout" style="background:var(--ink);">1</span></span>'
+            + '</div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>加点対象になるのは「掲載中」のみ。「掲載終了」になっていると加点要件を満たさないので注意</div>'
             + '</div>'
         },
-        {tag:"STEP 4", title:"ステータスを「掲載中」にする", desc:"登録した挑戦課題のステータスが「掲載中」になっていることを確認します。下書きのままでは加点対象になりません。"},
-        {tag:"完了", title:"マイページをキャプチャ", desc:"登録が完了したら、マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+        {tag:"完了", title:"マイページをキャプチャ", desc:"応募締切日時点で挑戦課題が「掲載中」になっていることを確認し、マイページTOP画面のキャプチャを取得して提出用に保存してください。"}
       ]
     },
     navi: {
