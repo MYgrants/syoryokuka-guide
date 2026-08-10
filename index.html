@@ -400,6 +400,31 @@
   .manual-caps{
     display:flex; gap:18px; font-size:.78rem; color:var(--ink-faint); margin-top:16px; flex-wrap:wrap;
   }
+
+  /* ---- in-modal step manual ---- */
+  .manual-back{
+    display:inline-flex; align-items:center; gap:6px; font-size:.82rem; font-weight:600;
+    color:var(--blue); margin-bottom:18px; cursor:pointer; background:none; border:none; padding:0;
+  }
+  .manual-back svg{transition:transform .2s ease;}
+  .manual-back:hover svg{transform:translateX(-3px);}
+  .step-flow{list-style:none; margin:0; padding:0; position:relative;}
+  .step-flow::before{
+    content:""; position:absolute; left:17px; top:8px; bottom:8px; width:1.4px; background:var(--line-soft);
+  }
+  .step-flow-item{position:relative; padding:0 0 28px 52px; min-height:1px;}
+  .step-flow-item:last-child{padding-bottom:4px;}
+  .step-flow-num{
+    position:absolute; left:0; top:0; width:36px; height:36px; border-radius:50%;
+    background:var(--blue); color:#fff; font-weight:700; font-size:.92rem;
+    display:flex; align-items:center; justify-content:center; z-index:1;
+  }
+  .step-flow-item h4{margin:6px 0 6px; font-size:.98rem; font-weight:700; letter-spacing:-0.01em;}
+  .step-flow-item p{margin:0; font-size:.88rem; color:var(--ink-soft);}
+  .step-flow-tag{
+    display:inline-block; font-size:.68rem; font-weight:600; color:var(--blue);
+    background:#EAF3FF; padding:2px 10px; border-radius:980px; margin-bottom:8px;
+  }
 </style>
 </head>
 <body>
@@ -880,8 +905,19 @@
         + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
-        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/1LhXT5UqMj0XJfvYsuwy_xqmnARV2PLdW/view" target="_blank" rel="noopener">取得マニュアルを見る</a>'
-        + '</div>'
+        + '<button class="manual-btn secondary" data-open-steps="gbiz">取得マニュアルを見る</button>'
+        + '</div>',
+      stepsTitle: "GビズIDプライム 取得マニュアル",
+      steps: [
+        {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で、署名用電子証明書が搭載されているマイナンバーカードが必要です。読み取り用にスマートフォンも手元に用意してください。"},
+        {tag:"STEP 1", title:"GビズIDアプリをインストール", desc:"スマートフォンでApp Store（iOS）またはGoogle Play（Android）から「GビズIDアプリ」を検索し、インストールします。"},
+        {tag:"STEP 2", title:"オンライン申請を開始する", desc:"パソコンで gbiz-id.go.jp にアクセスし、「GビズIDプライムをオンライン申請する」→「申請を始める」を選択します。"},
+        {tag:"STEP 3", title:"メールアドレスを登録", desc:"アカウントIDとなるメールアドレスを入力し、利用規約に同意。届いたワンタイムパスワードをホームページに入力します。"},
+        {tag:"STEP 4", title:"基本情報を入力", desc:"表示されたフォームに、企業（または個人事業主）の基本情報とアカウント利用者情報を入力します。"},
+        {tag:"STEP 5", title:"マイナンバーカードを読み取る", desc:"スマートフォンのGビズIDアプリを起動し、案内に沿ってマイナンバーカードを読み取ります。"},
+        {tag:"STEP 6", title:"申請・本人確認", desc:"パソコン画面に戻り入力内容を確認して「申請」。SMSに届くワンタイムパスワードを入力し、ログインパスワードを設定します。"},
+        {tag:"完了", title:"アカウント発行・キャプチャ保存", desc:"最短即日でアカウントが発行されます。マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+      ]
     },
     kessan_corp: {
       eyebrow: "決算書類一式（直近3期分）",
@@ -900,8 +936,17 @@
         + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://www.moj.go.jp/MINJI/minji10.html" target="_blank" rel="noopener">法務局一覧サイト（公式）</a>'
-        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/1J6vwKVa3wX8aGds-JQ3Zn6zXh_2dFaID/view" target="_blank" rel="noopener">取得マニュアルを見る</a>'
-        + '</div>'
+        + '<button class="manual-btn secondary" data-open-steps="rireki">取得マニュアルを見る</button>'
+        + '</div>',
+      stepsTitle: "履歴事項全部証明書 取得マニュアル",
+      steps: [
+        {tag:"事前準備", title:"利用者登録をする", desc:"法務省の「登記・供託オンライン申請システム（登記ねっと）」にアクセスし、利用者登録を行います（初回のみ）。"},
+        {tag:"STEP 1", title:"ログインして請求メニューを開く", desc:"登記ねっとにログインし、「かんたん証明書請求」を選択します。"},
+        {tag:"STEP 2", title:"会社を検索する", desc:"取得したい会社の正確な商号（社名）と本店所在地を入力して検索します。代表者印や身分証明書は原則不要です。"},
+        {tag:"STEP 3", title:"証明書の種類と通数を指定", desc:"証明書の種類で「履歴事項証明書」を選択し、必要な通数を指定します。"},
+        {tag:"STEP 4", title:"受取方法を選び手数料を支払う", desc:"郵送または窓口受取を選択し、オンライン請求の手数料を支払います（窓口交付より割安です）。"},
+        {tag:"完了", title:"到着後にスキャンしてPDF化", desc:"証明書が届いたら全ページをスキャンし、PDFデータで提出用に保存します。発行日が申請日から3か月以内であることを確認してください。"}
+      ]
     },
     nozei_corp: {
       eyebrow: "納税証明書その2（直近3期分）",
@@ -934,8 +979,16 @@
         + '<p style="font-size:.86rem;color:var(--ink-faint);">登録が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</p>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://mirasapo-connect.go.jp/corporation" target="_blank" rel="noopener">成長加速マッチングに登録する</a>'
-        + '<a class="manual-btn secondary" href="https://app-na2.hubspotdocuments.com/documents/47272255/view/1534341823?accessId=4ae7a0" target="_blank" rel="noopener">登録マニュアルを見る</a>'
-        + '</div>'
+        + '<button class="manual-btn secondary" data-open-steps="matching">登録マニュアルを見る</button>'
+        + '</div>',
+      stepsTitle: "成長加速マッチング 登録マニュアル",
+      steps: [
+        {tag:"STEP 1", title:"GビズIDプライムでログイン", desc:"mirasapo-connect.go.jp（成長加速マッチング）にアクセスし、GビズIDプライムでログインします。"},
+        {tag:"STEP 2", title:"企業情報を入力", desc:"基本情報や事業内容など、企業プロフィールを入力して登録します。"},
+        {tag:"STEP 3", title:"挑戦課題を登録", desc:"「今、取り組みたいこと・挑戦したいこと」を1件以上登録します。省力化補助金の加点にはこの登録が必須です。"},
+        {tag:"STEP 4", title:"ステータスを「掲載中」にする", desc:"登録した挑戦課題のステータスが「掲載中」になっていることを確認します。下書きのままでは加点対象になりません。"},
+        {tag:"完了", title:"マイページをキャプチャ", desc:"登録が完了したら、マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+      ]
     },
     navi: {
       eyebrow: "省力化ナビ",
@@ -944,8 +997,15 @@
         + '<div class="manual-warn">GビズIDプライム登録しているメールアドレス、企業名、担当者名を入力してください。作業時間の目安は約5分。補助金の加点に使用するため、全て入力が必須です。</div>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://labour-saving.smrj.go.jp/" target="_blank" rel="noopener">省力化ナビを登録する</a>'
-        + '<a class="manual-btn secondary" href="https://drive.google.com/file/d/12BAm0sm4zsB_bupuG45_r_EO1VhvOCcC/view?usp=sharing" target="_blank" rel="noopener">登録マニュアルを見る</a>'
-        + '</div>'
+        + '<button class="manual-btn secondary" data-open-steps="navi">登録マニュアルを見る</button>'
+        + '</div>',
+      stepsTitle: "省力化ナビ 登録マニュアル",
+      steps: [
+        {tag:"STEP 1", title:"省力化ナビにアクセス", desc:"labour-saving.smrj.go.jp にアクセスし、「登録する」を選択します。"},
+        {tag:"STEP 2", title:"必要情報を入力", desc:"GビズIDプライムに登録しているメールアドレス、企業名、担当者名を入力します。すべて入力が必須です。"},
+        {tag:"STEP 3", title:"内容を確認して送信", desc:"入力内容に誤りがないか確認し、送信します。所要時間の目安は約5分です。"},
+        {tag:"完了", title:"完了画面をキャプチャ", desc:"登録完了画面が表示されたら、キャプチャを取得して提出用に保存してください。"}
+      ]
     },
     kakutei: {
       eyebrow: "確定申告書第一表の控え（直近分）",
@@ -978,14 +1038,52 @@
   var manualTitle = document.getElementById('manualTitle');
   var manualEyebrow = document.getElementById('manualEyebrow');
   var manualBody = document.getElementById('manualBody');
+  var currentManualKey = null;
 
-  function openManual(key){
+  function renderOverview(key){
     var d = manualData[key];
     if(!d) return;
     manualEyebrow.textContent = d.eyebrow;
     manualTitle.textContent = d.title;
     manualBody.innerHTML = d.html;
     manualBody.scrollTop = 0;
+    bindStepButtons();
+  }
+
+  function renderSteps(key){
+    var d = manualData[key];
+    if(!d || !d.steps) return;
+    manualEyebrow.textContent = "STEP BY STEP";
+    manualTitle.textContent = d.stepsTitle || d.title;
+    var backSvg = '<svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5L5 9" stroke="currentColor" stroke-width="1.4"/></svg>';
+    var html = '<button class="manual-back" data-back-to="' + key + '">' + backSvg + ' 概要に戻る</button>';
+    html += '<ul class="step-flow">';
+    d.steps.forEach(function(s, i){
+      html += '<li class="step-flow-item">'
+        + '<div class="step-flow-num">' + (i + 1) + '</div>'
+        + '<span class="step-flow-tag">' + s.tag + '</span>'
+        + '<h4>' + s.title + '</h4>'
+        + '<p>' + s.desc + '</p>'
+        + '</li>';
+    });
+    html += '</ul>';
+    manualBody.innerHTML = html;
+    manualBody.scrollTop = 0;
+    document.querySelectorAll('[data-back-to]').forEach(function(b){
+      b.addEventListener('click', function(){ renderOverview(b.dataset.backTo); });
+    });
+  }
+
+  function bindStepButtons(){
+    document.querySelectorAll('[data-open-steps]').forEach(function(b){
+      b.addEventListener('click', function(){ renderSteps(b.dataset.openSteps); });
+    });
+  }
+
+  function openManual(key){
+    if(!manualData[key]) return;
+    currentManualKey = key;
+    renderOverview(key);
     manualBackdrop.classList.add('open');
     manualModal.classList.add('open');
     document.body.style.overflow = 'hidden';
