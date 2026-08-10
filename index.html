@@ -79,9 +79,8 @@
 
   /* ===================== SIDEBAR DRAWER ===================== */
   .sidebar-backdrop{
-    position:fixed; inset:0; background:rgba(0,0,0,0.35);
+    position:fixed; inset:0; background:rgba(0,0,0,0.22);
     opacity:0; pointer-events:none; transition:opacity .35s ease; z-index:98;
-    backdrop-filter:blur(2px);
   }
   .sidebar-backdrop.open{opacity:1; pointer-events:auto;}
 
@@ -89,7 +88,7 @@
     position:fixed; top:0; left:0; bottom:0; width:300px; max-width:82vw;
     background:#fff; z-index:99;
     transform:translateX(-100%); transition:transform .38s cubic-bezier(.32,.72,0,1);
-    box-shadow: 24px 0 60px rgba(0,0,0,0.18);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.08);
     display:flex; flex-direction:column;
     padding:20px 0 24px;
   }
@@ -393,7 +392,10 @@
     display:flex; align-items:center; justify-content:center; gap:8px;
     padding:14px 20px; border-radius:980px; font-size:.92rem; font-weight:600;
     background:var(--blue); color:#fff; transition:.2s ease; text-align:center;
+    border:none; cursor:pointer; font-family:inherit; -webkit-appearance:none; appearance:none;
+    width:100%; box-sizing:border-box; line-height:1.3;
   }
+  .manual-btn:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
   .manual-btn:hover{background:var(--blue-deep);}
   .manual-btn.secondary{background:var(--bg-soft); color:var(--ink);}
   .manual-btn.secondary:hover{background:var(--line-soft);}
@@ -424,6 +426,43 @@
   .step-flow-tag{
     display:inline-block; font-size:.68rem; font-weight:600; color:var(--blue);
     background:#EAF3FF; padding:2px 10px; border-radius:980px; margin-bottom:8px;
+  }
+
+  /* ---- input screen mockup ---- */
+  .mock-frame{
+    margin-top:16px; border:1px solid var(--line-soft); border-radius:16px;
+    overflow:hidden; box-shadow:var(--shadow-sm); background:#fff;
+  }
+  .mock-bar{
+    height:32px; background:var(--bg-soft); display:flex; align-items:center; gap:6px; padding:0 14px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .mock-dot{width:8px; height:8px; border-radius:50%; background:var(--line);}
+  .mock-body{padding:22px 20px 20px;}
+  .mock-field{position:relative; margin-bottom:16px;}
+  .mock-field:last-child{margin-bottom:0;}
+  .mock-label{font-size:.72rem; color:var(--ink-faint); font-weight:600; margin-bottom:6px; display:block;}
+  .mock-input{
+    border:1.4px solid var(--line); border-radius:10px; padding:11px 14px; font-size:.86rem;
+    color:var(--ink-soft); background:var(--bg-soft2); position:relative;
+  }
+  .mock-input.checkbox-row{display:flex; align-items:center; gap:10px; color:var(--ink);}
+  .mock-checkbox{width:16px; height:16px; border-radius:4px; border:1.6px solid var(--blue); background:var(--blue); flex:none; position:relative;}
+  .mock-checkbox::after{content:"";position:absolute; left:4px; top:1px; width:4px; height:8px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(40deg);}
+  .mock-btn{
+    background:var(--blue); color:#fff; border-radius:980px; padding:10px 22px;
+    font-size:.84rem; font-weight:600; display:inline-block; text-align:center;
+  }
+  .mock-callout{
+    position:absolute; right:-8px; top:-8px; width:20px; height:20px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:.66rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translate(50%,-50%); z-index:2;
+  }
+  .mock-legend{margin-top:14px; display:flex; flex-direction:column; gap:6px;}
+  .mock-legend-item{display:flex; align-items:flex-start; gap:10px; font-size:.82rem; color:var(--ink-soft);}
+  .mock-legend-num{
+    width:18px; height:18px; border-radius:50%; background:var(--ink); color:#fff; font-size:.64rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px;
   }
 </style>
 </head>
@@ -912,7 +951,19 @@
         {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で、署名用電子証明書が搭載されているマイナンバーカードが必要です。読み取り用にスマートフォンも手元に用意してください。"},
         {tag:"STEP 1", title:"GビズIDアプリをインストール", desc:"スマートフォンでApp Store（iOS）またはGoogle Play（Android）から「GビズIDアプリ」を検索し、インストールします。"},
         {tag:"STEP 2", title:"オンライン申請を開始する", desc:"パソコンで gbiz-id.go.jp にアクセスし、「GビズIDプライムをオンライン申請する」→「申請を始める」を選択します。"},
-        {tag:"STEP 3", title:"メールアドレスを登録", desc:"アカウントIDとなるメールアドレスを入力し、利用規約に同意。届いたワンタイムパスワードをホームページに入力します。"},
+        {tag:"STEP 3", title:"メールアドレスを登録", desc:"アカウントIDとなるメールアドレスを入力し、利用規約に同意。届いたワンタイムパスワードをホームページに入力します。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">メールアドレス</span><div class="mock-input">you@example.com<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><div class="mock-input checkbox-row"><span class="mock-checkbox"></span>利用規約に同意する<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">確認メールを送信<span class="mock-callout">3</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力（これがGビズIDのログインIDになります）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>利用規約を確認し、チェックを入れる</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>ボタンを押すと、入力したアドレスにワンタイムパスワードが届きます</div>'
+            + '</div>'
+        },
         {tag:"STEP 4", title:"基本情報を入力", desc:"表示されたフォームに、企業（または個人事業主）の基本情報とアカウント利用者情報を入力します。"},
         {tag:"STEP 5", title:"マイナンバーカードを読み取る", desc:"スマートフォンのGビズIDアプリを起動し、案内に沿ってマイナンバーカードを読み取ります。"},
         {tag:"STEP 6", title:"申請・本人確認", desc:"パソコン画面に戻り入力内容を確認して「申請」。SMSに届くワンタイムパスワードを入力し、ログインパスワードを設定します。"},
@@ -942,7 +993,19 @@
       steps: [
         {tag:"事前準備", title:"利用者登録をする", desc:"法務省の「登記・供託オンライン申請システム（登記ねっと）」にアクセスし、利用者登録を行います（初回のみ）。"},
         {tag:"STEP 1", title:"ログインして請求メニューを開く", desc:"登記ねっとにログインし、「かんたん証明書請求」を選択します。"},
-        {tag:"STEP 2", title:"会社を検索する", desc:"取得したい会社の正確な商号（社名）と本店所在地を入力して検索します。代表者印や身分証明書は原則不要です。"},
+        {tag:"STEP 2", title:"会社を検索する", desc:"取得したい会社の正確な商号（社名）と本店所在地を入力して検索します。代表者印や身分証明書は原則不要です。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">商号（会社名）</span><div class="mock-input">株式会社〇〇<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><span class="mock-label">本店所在地</span><div class="mock-input">東京都〇〇区〇〇1-1-1<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">検索する<span class="mock-callout">3</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>履歴事項全部証明書に記載されている正式な会社名を入力（株式会社の位置に注意）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>登記されている本店所在地を入力（現在の所在地と異なる場合は登記上の住所）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>検索結果から対象の法人を選択して次に進みます</div>'
+            + '</div>'
+        },
         {tag:"STEP 3", title:"証明書の種類と通数を指定", desc:"証明書の種類で「履歴事項証明書」を選択し、必要な通数を指定します。"},
         {tag:"STEP 4", title:"受取方法を選び手数料を支払う", desc:"郵送または窓口受取を選択し、オンライン請求の手数料を支払います（窓口交付より割安です）。"},
         {tag:"完了", title:"到着後にスキャンしてPDF化", desc:"証明書が届いたら全ページをスキャンし、PDFデータで提出用に保存します。発行日が申請日から3か月以内であることを確認してください。"}
@@ -985,7 +1048,19 @@
       steps: [
         {tag:"STEP 1", title:"GビズIDプライムでログイン", desc:"mirasapo-connect.go.jp（成長加速マッチング）にアクセスし、GビズIDプライムでログインします。"},
         {tag:"STEP 2", title:"企業情報を入力", desc:"基本情報や事業内容など、企業プロフィールを入力して登録します。"},
-        {tag:"STEP 3", title:"挑戦課題を登録", desc:"「今、取り組みたいこと・挑戦したいこと」を1件以上登録します。省力化補助金の加点にはこの登録が必須です。"},
+        {tag:"STEP 3", title:"挑戦課題を登録", desc:"「今、取り組みたいこと・挑戦したいこと」を1件以上登録します。省力化補助金の加点にはこの登録が必須です。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">挑戦したいこと</span><div class="mock-input">例）IoT機器の導入による現場業務の省力化<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><span class="mock-label">公開ステータス</span><div class="mock-input checkbox-row"><span class="mock-checkbox"></span>掲載中にする<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">保存する<span class="mock-callout">3</span></span></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>取り組みたい内容を具体的に記入（省力化補助金の申請内容と関連づけると◎）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>「下書き」のままだと加点対象になりません。必ず「掲載中」に設定</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>保存すると、マイページに登録内容が表示されます</div>'
+            + '</div>'
+        },
         {tag:"STEP 4", title:"ステータスを「掲載中」にする", desc:"登録した挑戦課題のステータスが「掲載中」になっていることを確認します。下書きのままでは加点対象になりません。"},
         {tag:"完了", title:"マイページをキャプチャ", desc:"登録が完了したら、マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
       ]
@@ -1002,7 +1077,19 @@
       stepsTitle: "省力化ナビ 登録マニュアル",
       steps: [
         {tag:"STEP 1", title:"省力化ナビにアクセス", desc:"labour-saving.smrj.go.jp にアクセスし、「登録する」を選択します。"},
-        {tag:"STEP 2", title:"必要情報を入力", desc:"GビズIDプライムに登録しているメールアドレス、企業名、担当者名を入力します。すべて入力が必須です。"},
+        {tag:"STEP 2", title:"必要情報を入力", desc:"GビズIDプライムに登録しているメールアドレス、企業名、担当者名を入力します。すべて入力が必須です。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">メールアドレス</span><div class="mock-input">you@example.com<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><span class="mock-label">企業名</span><div class="mock-input">株式会社〇〇<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">担当者名</span><div class="mock-input">山田 太郎<span class="mock-callout">3</span></div></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>GビズIDプライムに登録している「メールアドレス」と必ず一致させる</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>登記上・屋号どおりの正式名称を入力</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>申請の実務担当者の氏名を入力</div>'
+            + '</div>'
+        },
         {tag:"STEP 3", title:"内容を確認して送信", desc:"入力内容に誤りがないか確認し、送信します。所要時間の目安は約5分です。"},
         {tag:"完了", title:"完了画面をキャプチャ", desc:"登録完了画面が表示されたら、キャプチャを取得して提出用に保存してください。"}
       ]
@@ -1064,6 +1151,7 @@
         + '<span class="step-flow-tag">' + s.tag + '</span>'
         + '<h4>' + s.title + '</h4>'
         + '<p>' + s.desc + '</p>'
+        + (s.mock || '')
         + '</li>';
     });
     html += '</ul>';
