@@ -226,15 +226,35 @@
   .diagram-node span{color:var(--ink-soft); font-size:.84rem; display:block; margin-top:2px;}
 
   /* ===================== TIMELINE ===================== */
-  .timeline{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:16px; margin:0 0 8px;}
-  @media (max-width:820px){ .timeline{grid-template-columns:1fr;} }
-  .tl-step{background:#fff; border:1px solid var(--line-soft); border-radius:20px; padding:26px; box-shadow:var(--shadow-sm);}
-  .tl-step .marker{
-    width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; margin-bottom:18px;
+  .roadmap{
+    overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 6px; padding:22px 4px 12px;
+    scrollbar-width:thin;
   }
-  .tl-step h4{font-size:1.05rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em;}
-  .tl-step p{color:var(--ink-soft); font-size:.86rem; margin:0;}
+  .roadmap-row{display:flex; align-items:flex-start; min-width:max-content;}
+  .rm-item{
+    display:flex; flex-direction:column; align-items:flex-start; width:216px; flex:none; padding:0 6px;
+  }
+  .rm-item.rm-item-end{width:216px;}
+  .node-circle{
+    width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.94rem;
+    margin-bottom:16px; box-shadow:0 0 0 5px var(--paper); position:relative; z-index:2;
+  }
+  .node-circle-b{background:var(--ink);}
+  .rm-item h4{font-size:1rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; line-height:1.4;}
+  .rm-item p{color:var(--ink-soft); font-size:.84rem; margin:0; line-height:1.65;}
+  .rm-arrow{
+    flex:none; width:30px; display:flex; align-items:center; justify-content:center;
+    padding-top:19px; color:var(--line); margin-top:-1px;
+  }
+  .roadmap-hint{
+    font-size:.72rem; color:var(--ink-faint); text-align:center; margin:10px 0 0;
+  }
+  @media (min-width:900px){ .roadmap-hint{display:none;} }
+  @media (max-width:640px){
+    .rm-item{width:170px;}
+    .rm-arrow{width:22px;}
+  }
 
   .notice-box{
     background:var(--ink); color:#fff; border-radius:22px; padding:34px 36px; margin-top:36px;
@@ -261,9 +281,16 @@
   .bonus-links{margin-top:20px; display:flex; flex-direction:column; gap:10px;}
   .bonus-links a{font-size:.86rem; color:var(--blue); font-weight:500; width:fit-content;}
   .bonus-links a:hover{text-decoration:underline;}
-  .bonus-links a.mypage-link{
-    font-weight:700; padding:8px 14px; background:#EAF3FF; border-radius:8px;
+  .section-head-row{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    margin:.5em 0 .8em;
   }
+  .mypage-pill{
+    display:inline-flex; align-items:center; gap:8px; font-size:.82rem; font-weight:600;
+    color:var(--blue); background:#EAF3FF; padding:9px 18px; border-radius:980px;
+    white-space:nowrap; transition:.2s ease;
+  }
+  .mypage-pill:hover{background:#DCEBFF;}
   .phase-label{
     font-size:.78rem; font-weight:700; color:var(--ink-faint); text-transform:uppercase;
     letter-spacing:.06em; margin:36px 0 14px;
@@ -413,6 +440,19 @@
     display:flex; align-items:center; justify-content:center; margin-top:1px;
   }
 
+  .manual-fields{list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .manual-fields li{border-bottom:1px solid var(--line-soft); padding-bottom:16px;}
+  .manual-fields li:last-child{border-bottom:none; padding-bottom:0;}
+  .manual-fields .mf-label{
+    display:flex; align-items:center; gap:10px; font-weight:700; font-size:.9rem; color:var(--ink); margin-bottom:6px;
+  }
+  .manual-fields .mf-label::before{
+    content:"✓"; color:var(--ok); font-weight:700; font-size:.7rem; flex:none;
+    width:18px; height:18px; border-radius:50%; background:var(--ok-soft);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .manual-fields .mf-desc{font-size:.86rem; color:var(--ink-soft); line-height:1.7; padding-left:28px; display:block;}
+
   .manual-section-title{
     font-size:.76rem; font-weight:700; color:var(--ink-faint); text-transform:uppercase;
     letter-spacing:.06em; margin:22px 0 10px;
@@ -561,7 +601,7 @@
     <button class="sidebar-close" id="sidebarClose" aria-label="閉じる"></button>
   </div>
   <ul class="sidebar-list">
-    <li><a href="#top" class="side-link">ホーム</a></li>
+    <li><a href="#" class="side-link scroll-top-link">ホーム</a></li>
     <li><a href="#about" class="side-link">省力化投資補助金とは</a></li>
     <li><a href="#schedule" class="side-link">応募申請〜効果報告までの流れ</a></li>
     <li><a href="#bonus" class="side-link">事業継続力強化計画</a></li>
@@ -674,20 +714,33 @@
     <p class="lead">中小企業省力化投資補助金（一般型）公式サイトの「応募申請・交付申請の流れ」に基づく、正確な9ステップです。申請して終わりではなく、着金後も5年間の報告義務がある制度だとご理解のうえお取り組みください。</p>
 
     <div class="phase-label">交付決定まで</div>
-    <div class="timeline">
-      <div class="tl-step"><div class="marker">1</div><h4>GビズID取得</h4><p>電子申請のためGビズIDプライムアカウントが必要です。取得に時間がかかるため早めに準備してください。</p></div>
-      <div class="tl-step"><div class="marker">2</div><h4>事業計画書作成／設備選定</h4><p>事業計画書を作成し、人手不足解消に効果があるデジタル技術等を活用した専用設備を選定します。</p></div>
-      <div class="tl-step"><div class="marker">3</div><h4>応募申請</h4><p>電子申請システムのみで受付。採択まで約3か月程度かかります。</p></div>
-      <div class="tl-step"><div class="marker">4</div><h4>相見積もり／事業者選定</h4><p>採択後（補助金交付候補者決定後）、発注先の選定にあたり原則2者以上から同一条件の見積を取得します。</p></div>
-      <div class="tl-step"><div class="marker">5</div><h4>交付申請</h4><p>電子申請システムで交付申請を行います。審査を経て交付決定となります。</p></div>
+    <div class="roadmap">
+      <div class="roadmap-row">
+        <div class="rm-item"><div class="node-circle">1</div><h4>GビズID取得</h4><p>電子申請のためGビズIDプライムアカウントが必要です。取得に時間がかかるため早めに準備してください。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item"><div class="node-circle">2</div><h4>事業計画書作成／設備選定</h4><p>事業計画書を作成し、人手不足解消に効果があるデジタル技術等を活用した専用設備を選定します。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item"><div class="node-circle">3</div><h4>応募申請</h4><p>電子申請システムのみで受付。採択まで約3か月程度かかります。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item"><div class="node-circle">4</div><h4>相見積もり／事業者選定</h4><p>採択後（補助金交付候補者決定後）、発注先の選定にあたり原則2者以上から同一条件の見積を取得します。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item rm-item-end"><div class="node-circle">5</div><h4>交付申請</h4><p>電子申請システムで交付申請を行います。審査を経て交付決定となります。</p></div>
+      </div>
+      <p class="roadmap-hint">← 横にスクロールできます →</p>
     </div>
 
     <div class="phase-label phase-label-b">交付決定後</div>
-    <div class="timeline">
-      <div class="tl-step"><div class="marker">6</div><h4>補助事業実施</h4><p>交付決定日から18か月以内（採択発表日から20か月以内）に設備の契約・納品・支払いまで完了させます。</p></div>
-      <div class="tl-step"><div class="marker">7</div><h4>実績報告</h4><p>事業完了日から30日を経過した日、または事業完了期限日のいずれか早い日までに実績報告書を提出します。</p></div>
-      <div class="tl-step"><div class="marker">8</div><h4>補助金交付（着金）</h4><p>実績報告の内容をもとに補助額が確定した後、支払い請求を行うと補助金が交付されます。満額とは限りません。</p></div>
-      <div class="tl-step"><div class="marker">9</div><h4>事業実施効果報告</h4><p>事業計画期間1年目終了後の最初の4月から5年間、毎年期限までに効果報告を行う必要があります。</p></div>
+    <div class="roadmap">
+      <div class="roadmap-row">
+        <div class="rm-item"><div class="node-circle node-circle-b">6</div><h4>補助事業実施</h4><p>交付決定日から18か月以内（採択発表日から20か月以内）に設備の契約・納品・支払いまで完了させます。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item"><div class="node-circle node-circle-b">7</div><h4>実績報告</h4><p>事業完了日から30日を経過した日、または事業完了期限日のいずれか早い日までに実績報告書を提出します。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item"><div class="node-circle node-circle-b">8</div><h4>補助金交付（着金）</h4><p>実績報告の内容をもとに補助額が確定した後、支払い請求を行うと補助金が交付されます。満額とは限りません。</p></div>
+        <div class="rm-arrow"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rm-item rm-item-end"><div class="node-circle node-circle-b">9</div><h4>事業実施効果報告</h4><p>事業計画期間1年目終了後の最初の4月から5年間、毎年期限までに効果報告を行う必要があります。</p></div>
+      </div>
+      <p class="roadmap-hint">← 横にスクロールできます →</p>
     </div>
 
     <div class="notice-box">
@@ -704,7 +757,13 @@
   <section class="soft" id="bonus">
     <div class="inner">
       <span class="eyebrow">Bonus Point</span>
-      <h2 class="title">事業継続力強化計画とは</h2>
+      <div class="section-head-row">
+        <h2 class="title" style="margin-bottom:0;">事業継続力強化計画とは</h2>
+        <a href="https://www.keizokuryoku.go.jp/" target="_blank" rel="noopener" class="mypage-pill">
+          マイページ（電子申請システム）
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
       <p class="lead">自然災害や感染症が発生した際でも事業を継続・早期復旧するために、中小企業が事前に備える計画です。経済産業大臣が認定を行い、省力化補助金をはじめ多くの補助金で加点対象となります。</p>
 
       <div class="bonus-grid">
@@ -726,7 +785,6 @@
           </ol>
           <div class="bonus-links">
             <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html" target="_blank" rel="noopener">事業継続力強化計画（公式サイト）↗</a>
-            <a href="https://www.keizokuryoku.go.jp/" target="_blank" rel="noopener" class="mypage-link">事業継続力強化計画 マイページ（電子申請システム）↗</a>
             <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html#contact" target="_blank" rel="noopener">申請に関するお問い合わせ先 ↗</a>
           </div>
         </div>
@@ -1009,7 +1067,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="brand"><span class="dot"></span>MY補助金パートナー</div>
-      <a class="back-top" href="#top">TOP へ戻る ↑</a>
+      <a class="back-top scroll-top-link" href="#">TOP へ戻る ↑</a>
     </div>
     <p class="copy">Copyright © MY補助金パートナー, Inc. All Rights Reserved.</p>
   </div>
@@ -1029,6 +1087,14 @@
 
 <script>
 (function(){
+  // Scroll to top (sticky header makes #top anchor unreliable in some browsers)
+  document.querySelectorAll('.scroll-top-link').forEach(function(l){
+    l.addEventListener('click', function(e){
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  });
+
   // Mypage dropdown
   var mypageToggle = document.getElementById('mypageToggle');
   var mypageMenu = document.getElementById('mypageMenu');
@@ -1324,10 +1390,10 @@
       title: "役員名簿",
       html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。</p>'
         + '<div class="manual-section-title">どこに何を書くか</div>'
-        + '<ul class="manual-check">'
-        + '<li><b>役職・氏名：</b>応募申請時点の全役員を1行ずつ記載（代表取締役・取締役・監査役など全員）</li>'
-        + '<li><b>大企業／みなし大企業チェック欄：</b>その役員が大企業、またはみなし大企業に所属（兼務）している場合のみチェックを入れる。該当しなければ空欄でOK</li>'
-        + '<li><b>株式会社以外の組織：</b>「役員」に相当する役職（理事・組合長など）の情報をそのまま記載する</li>'
+        + '<ul class="manual-fields">'
+        + '<li><span class="mf-label">役職・氏名</span><span class="mf-desc">応募申請時点の全役員を1行ずつ記載（代表取締役・取締役・監査役など全員）</span></li>'
+        + '<li><span class="mf-label">大企業／みなし大企業チェック欄</span><span class="mf-desc">その役員が大企業、またはみなし大企業に所属（兼務）している場合のみチェックを入れる。該当しなければ空欄でOK</span></li>'
+        + '<li><span class="mf-label">株式会社以外の組織</span><span class="mf-desc">「役員」に相当する役職（理事・組合長など）の情報をそのまま記載する</span></li>'
         + '</ul>'
         + '<div class="manual-warn">1人でも記載漏れがあると審査が止まる原因になります。履歴事項全部証明書に載っている役員と数が一致しているか、提出前に必ず見比べてください。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_officer_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
@@ -1338,10 +1404,10 @@
       title: "株主・出資者名簿",
       html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。</p>'
         + '<div class="manual-section-title">どこに何を書くか</div>'
-        + '<ul class="manual-check">'
-        + '<li><b>氏名・名称／株保有数・出資価格：</b>応募申請時点の全株主・出資者を1行ずつ記載</li>'
-        + '<li><b>大企業／みなし大企業チェック欄：</b>その株主・出資者が大企業、または大企業に所属している場合のみチェック</li>'
-        + '<li><b>合計欄：</b>記載した「株保有数・出資価格」の合計が、会社全体の「総株式発行数・出資価格総額」と一致しているか必ず確認</li>'
+        + '<ul class="manual-fields">'
+        + '<li><span class="mf-label">氏名・名称／株保有数・出資価格</span><span class="mf-desc">応募申請時点の全株主・出資者を1行ずつ記載</span></li>'
+        + '<li><span class="mf-label">大企業／みなし大企業チェック欄</span><span class="mf-desc">その株主・出資者が大企業、または大企業に所属している場合のみチェック</span></li>'
+        + '<li><span class="mf-label">合計欄</span><span class="mf-desc">記載した「株保有数・出資価格」の合計が、会社全体の「総株式発行数・出資価格総額」と一致しているか必ず確認</span></li>'
         + '</ul>'
         + '<div class="manual-note">株主・出資者が21名以上いる場合、全員分の入力は不要です。株保有数・出資価格が多い順に上位20名だけを入力してください。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_shareholder_investor_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
@@ -1352,9 +1418,9 @@
       title: "事業実施場所リスト",
       html: '<p class="manual-lede">補助事業の実施場所（設備を設置する工場・店舗等）が複数ある場合にのみ必要な書類です。1か所のみの場合は提出不要です。</p>'
         + '<div class="manual-section-title">どこに何を書くか</div>'
-        + '<ul class="manual-check">'
-        + '<li><b>主たる実施場所：</b>申請システムの入力画面で直接入力します（このExcelには書きません）</li>'
-        + '<li><b>その他の実施場所：</b>主たる場所以外のすべての実施場所を、このリストに1か所ずつ記載します</li>'
+        + '<ul class="manual-fields">'
+        + '<li><span class="mf-label">主たる実施場所</span><span class="mf-desc">申請システムの入力画面で直接入力します（このExcelには書きません）</span></li>'
+        + '<li><span class="mf-label">その他の実施場所</span><span class="mf-desc">主たる場所以外のすべての実施場所を、このリストに1か所ずつ記載します</span></li>'
         + '</ul>'
         + '<div class="manual-warn">実施場所は原則、後から変更できません。事務局から変更が承認された場合にのみ、リストを再提出してください。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_project_location_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
@@ -1365,10 +1431,10 @@
       title: "1人当たりの給与支給総額の確認書",
       html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。事業計画の「1人当たり給与支給総額」の基準値を算出するための書類です。</p>'
         + '<div class="manual-section-title">どこに何を書くか</div>'
-        + '<ul class="manual-check">'
-        + '<li><b>従業員一覧：</b>直近決算時点で雇用している全従業員（対象者）を1行ずつ記載し、それぞれの給与支給総額を入力</li>'
-        + '<li><b>自動計算欄：</b>入力した情報をもとに、シート内で1人当たりの給与支給総額が自動算出されます</li>'
-        + '<li><b>決算期が12か月に満たない場合：</b>シート内の案内に従って12か月分に換算した金額に直してください</li>'
+        + '<ul class="manual-fields">'
+        + '<li><span class="mf-label">従業員一覧</span><span class="mf-desc">直近決算時点で雇用している全従業員（対象者）を1行ずつ記載し、それぞれの給与支給総額を入力</span></li>'
+        + '<li><span class="mf-label">自動計算欄</span><span class="mf-desc">入力した情報をもとに、シート内で1人当たりの給与支給総額が自動算出されます</span></li>'
+        + '<li><span class="mf-label">決算期が12か月に満たない場合</span><span class="mf-desc">シート内の案内に従って12か月分に換算した金額に直してください</span></li>'
         + '</ul>'
         + '<div class="manual-warn">賃金台帳と数字が食い違っていると、後の交付申請時に指摘されます。作成時は必ず賃金台帳と突き合わせてください（交付申請時に賃金台帳の提出が別途必要です）。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/ippan/download/" target="_blank" rel="noopener">指定書式ダウンロードページ（公式）</a></div>'
