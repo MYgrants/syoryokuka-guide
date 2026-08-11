@@ -503,6 +503,13 @@
     background:var(--bg-soft2); color:var(--ink-soft); border:1.4px solid var(--line);
     border-radius:980px; padding:8px 16px; font-size:.78rem; font-weight:600; display:inline-block;
   }
+
+  /* ---- real screenshot embed ---- */
+  .step-shot{
+    border:1px solid var(--line-soft); border-radius:14px; overflow:hidden;
+    box-shadow:var(--shadow-sm); background:var(--bg-soft);
+  }
+  .step-shot img{width:100%; display:block;}
 </style>
 </head>
 <body>
@@ -1226,7 +1233,7 @@
             + '</div>'
             + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※選択できるカテゴリーと入力項目は公式サービスの案内内容をもとに再現しています</p>'
         },
-        {tag:"STEP 3", title:"追加情報を登録する", desc:"挑戦課題の登録後、事業内容や強みなどの追加情報を登録します。ここを充実させておくほど、支援機関とのマッチング率が上がるとされています。"},
+        {tag:"STEP 3", title:"追加情報を登録する（任意）", desc:"挑戦課題の登録後、事業内容や強みなどの追加情報を登録します。ここは任意項目ですが、充実させておくほど支援機関とのマッチング率が上がるとされています。"},
         {tag:"STEP 4", title:"掲載ステータスを確認する", desc:"マイページで、登録した挑戦課題のステータスを確認します。",
           mock:'<div class="screen-recreate">'
             + '<div class="sr-topbar"><span class="sr-logo">成長加速マッチングサービス</span></div>'
@@ -1247,30 +1254,33 @@
     navi: {
       eyebrow: "省力化ナビ",
       title: "省力化ナビ",
-      html: '<p class="manual-lede">何から取り組めばいいかわからない方から、具体的な解決策を知りたい事業者まで、省力化・生産性向上への取り組みを後押しするツールです。</p>'
-        + '<div class="manual-warn">GビズIDプライム登録しているメールアドレス、企業名、担当者名を入力してください。作業時間の目安は約5分。補助金の加点に使用するため、全て入力が必須です。</div>'
+      html: '<p class="manual-lede">何から取り組めばいいかわからない方から、具体的な解決策を知りたい事業者まで、業種ごとのイラストを選んでいくだけで、省力化・生産性向上の取組方法がわかるツールです。</p>'
+        + '<div class="manual-warn">補助金の加点対象にするには、最後のステップで表示される「取組方法」ページのPDFを必ずダウンロードしてください。ダウンロードしないと加点要件を満たしません。</div>'
         + '<div class="manual-actions">'
-        + '<a class="manual-btn" href="https://labour-saving.smrj.go.jp/" target="_blank" rel="noopener">省力化ナビを登録する</a>'
-        + '<button class="manual-btn secondary" data-open-steps="navi">登録マニュアルを見る</button>'
+        + '<a class="manual-btn" href="https://labour-saving.smrj.go.jp/" target="_blank" rel="noopener">省力化ナビを開く</a>'
+        + '<button class="manual-btn secondary" data-open-steps="navi">利用マニュアルを見る</button>'
         + '</div>',
-      stepsTitle: "省力化ナビ 登録マニュアル",
+      stepsTitle: "省力化ナビ 利用マニュアル",
       steps: [
-        {tag:"STEP 1", title:"省力化ナビにアクセス", desc:"labour-saving.smrj.go.jp にアクセスし、「登録する」を選択します。"},
-        {tag:"STEP 2", title:"必要情報を入力", desc:"GビズIDプライムに登録しているメールアドレス、企業名、担当者名を入力します。すべて入力が必須です。",
-          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
-            + '<div class="mock-body">'
-            + '<div class="mock-field"><span class="mock-label">メールアドレス</span><div class="mock-input">you@example.com<span class="mock-callout">1</span></div></div>'
-            + '<div class="mock-field"><span class="mock-label">企業名</span><div class="mock-input">株式会社〇〇<span class="mock-callout">2</span></div></div>'
-            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">担当者名</span><div class="mock-input">山田 太郎<span class="mock-callout">3</span></div></div>'
-            + '</div></div>'
-            + '<div class="mock-legend">'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>GビズIDプライムに登録している「メールアドレス」と必ず一致させる</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>登記上・屋号どおりの正式名称を入力</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>申請の実務担当者の氏名を入力</div>'
-            + '</div>'
+        {tag:"STEP 1", title:"基本情報を入力する", desc:"業種、所在都道府県、従業員数など、診断に必要な事業者情報を入力します。会計・人事など業種横断的な業務にも対応しています。補助金の申請を希望する場合はここでGビズIDを入力します（申請しない場合は入力不要）。",
+          mock:'<div class="step-shot"><img src="https://labour-saving.smrj.go.jp/assets/images/step-01.png" alt="省力化ナビ STEP1 基本情報入力画面" loading="lazy"></div>'
+            + '<div class="step-shot" style="margin-top:10px;"><img src="https://labour-saving.smrj.go.jp/assets/images/step-01-b.png" alt="省力化ナビ STEP1 GビズID入力画面" loading="lazy"></div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※画像は省力化ナビ公式サイト（labour-saving.smrj.go.jp）の実際の画面です</p>'
         },
-        {tag:"STEP 3", title:"内容を確認して送信", desc:"入力内容に誤りがないか確認し、送信します。所要時間の目安は約5分です。"},
-        {tag:"完了", title:"完了画面をキャプチャ", desc:"登録完了画面が表示されたら、キャプチャを取得して提出用に保存してください。"}
+        {tag:"STEP 2", title:"課題を選択する", desc:"選んだ業種ごとのイラストが表示されるので、日々の業務で気になっている・興味のある項目をイラストから選びます。複数選択が可能です。",
+          mock:'<div class="step-shot"><img src="https://labour-saving.smrj.go.jp/assets/images/step-02.png" alt="省力化ナビ STEP2 課題の選択画面" loading="lazy"></div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※画像は省力化ナビ公式サイト（labour-saving.smrj.go.jp）の実際の画面です</p>'
+        },
+        {tag:"STEP 3", title:"解決策を選択する", desc:"選んだ課題に対して、省力化・生産性向上につながる具体的な解決策がイラストで表示されるので、気になるものを選びます。",
+          mock:'<div class="step-shot"><img src="https://labour-saving.smrj.go.jp/assets/images/step-03.png" alt="省力化ナビ STEP3 解決策の選択画面" loading="lazy"></div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※画像は省力化ナビ公式サイト（labour-saving.smrj.go.jp）の実際の画面です</p>'
+        },
+        {tag:"STEP 4", title:"取組方法を確認・PDFをダウンロード", desc:"選択した解決策の具体的な取組方法、取組事例、相談先となる支援機関が1ページで確認できます。無料でできる3ステップなども紹介されています。",
+          mock:'<div class="step-shot"><img src="https://labour-saving.smrj.go.jp/assets/images/step-04.png" alt="省力化ナビ STEP4 取組方法の確認画面" loading="lazy"></div>'
+            + '<div class="manual-warn" style="margin-top:14px;">補助金の加点申請をする場合は、このページの「PDFダウンロード」ボタンを必ず押してください。ボタンを押していないと加点要件を満たしません。</div>'
+            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※画像は省力化ナビ公式サイト（labour-saving.smrj.go.jp）の実際の画面です</p>'
+        },
+        {tag:"完了", title:"PDFとキャプチャを保存", desc:"ダウンロードしたPDFと、STEP4の画面キャプチャの両方を提出用に保存してください。"}
       ]
     },
     kakutei: {
