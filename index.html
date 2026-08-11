@@ -77,6 +77,31 @@
   }
   .nav-cta:hover{background:var(--blue-deep);}
 
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .mypage-group{position:relative;}
+  .mypage-toggle{
+    display:flex; align-items:center; gap:6px; font-size:.78rem; font-weight:600;
+    color:var(--ink); background:var(--bg-soft); border:1px solid var(--line-soft);
+    padding:7px 14px; border-radius:980px; cursor:pointer; transition:.2s ease;
+  }
+  .mypage-toggle:hover{background:var(--line-soft);}
+  .mypage-toggle svg{transition:transform .2s ease;}
+  .mypage-toggle.open svg{transform:rotate(180deg);}
+  .mypage-menu{
+    position:absolute; top:calc(100% + 10px); right:0; width:250px;
+    background:#fff; border:1px solid var(--line-soft); border-radius:14px;
+    box-shadow:var(--shadow-md); padding:8px; opacity:0; pointer-events:none;
+    transform:translateY(-6px); transition:.2s ease; z-index:70;
+  }
+  .mypage-menu.open{opacity:1; pointer-events:auto; transform:translateY(0);}
+  .mypage-menu a{
+    display:flex; flex-direction:column; gap:2px; padding:10px 12px; border-radius:9px;
+    font-size:.86rem; font-weight:600; color:var(--ink); transition:background .15s ease;
+  }
+  .mypage-menu a:hover{background:var(--bg-soft);}
+  .mypage-menu .mp-sub{font-size:.72rem; font-weight:400; color:var(--ink-faint);}
+  @media (max-width:900px){ .mypage-toggle span{display:none;} .mypage-toggle{padding:9px;} }
+
   /* ===================== SIDEBAR DRAWER ===================== */
   .sidebar-backdrop{
     position:fixed; inset:0; background:rgba(0,0,0,0.22);
@@ -201,7 +226,7 @@
   .diagram-node span{color:var(--ink-soft); font-size:.84rem; display:block; margin-top:2px;}
 
   /* ===================== TIMELINE ===================== */
-  .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:56px 0 40px;}
+  .timeline{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:16px; margin:0 0 8px;}
   @media (max-width:820px){ .timeline{grid-template-columns:1fr;} }
   .tl-step{background:#fff; border:1px solid var(--line-soft); border-radius:20px; padding:26px; box-shadow:var(--shadow-sm);}
   .tl-step .marker{
@@ -236,6 +261,15 @@
   .bonus-links{margin-top:20px; display:flex; flex-direction:column; gap:10px;}
   .bonus-links a{font-size:.86rem; color:var(--blue); font-weight:500; width:fit-content;}
   .bonus-links a:hover{text-decoration:underline;}
+  .bonus-links a.mypage-link{
+    font-weight:700; padding:8px 14px; background:#EAF3FF; border-radius:8px;
+  }
+  .phase-label{
+    font-size:.78rem; font-weight:700; color:var(--ink-faint); text-transform:uppercase;
+    letter-spacing:.06em; margin:36px 0 14px;
+  }
+  .phase-label:first-of-type{margin-top:0;}
+  .phase-label-b{margin-top:20px;}
   .fine-print{font-size:.8rem; color:var(--ink-faint); margin-top:16px;}
 
   /* ===================== DOCS ===================== */
@@ -539,6 +573,11 @@
   </ul>
   <div class="sidebar-divider"></div>
   <ul class="sidebar-list">
+    <li><a href="https://portal.shoryokuka.smrj.go.jp/mypage/login" target="_blank" rel="noopener">省力化補助金 マイページ ↗</a></li>
+    <li><a href="https://www.keizokuryoku.go.jp/" target="_blank" rel="noopener">事業継続力強化計画 マイページ ↗</a></li>
+  </ul>
+  <div class="sidebar-divider"></div>
+  <ul class="sidebar-list">
     <li><a href="https://shoryokuka.smrj.go.jp/" target="_blank" rel="noopener">省力化投資補助金 公式HP ↗</a></li>
   </ul>
   <div class="sidebar-foot">Copyright © MY補助金パートナー, Inc.</div>
@@ -556,7 +595,20 @@
       <a href="#bonus">加点項目</a>
       <a href="#docs">必要書類</a>
     </nav>
-    <a class="nav-cta" href="#docs">書類を確認する</a>
+    <div class="nav-right">
+      <div class="mypage-group">
+        <button class="mypage-toggle" id="mypageToggle">マイページ <svg width="9" height="6" viewBox="0 0 9 6" fill="none"><path d="M1 1L4.5 5L8 1" stroke="currentColor" stroke-width="1.4"/></svg></button>
+        <div class="mypage-menu" id="mypageMenu">
+          <a href="https://portal.shoryokuka.smrj.go.jp/mypage/login" target="_blank" rel="noopener">
+            <span>省力化補助金 マイページ</span><span class="mp-sub">申請・審査状況の確認</span>
+          </a>
+          <a href="https://www.keizokuryoku.go.jp/" target="_blank" rel="noopener">
+            <span>事業継続力強化計画 マイページ</span><span class="mp-sub">電子申請システム</span>
+          </a>
+        </div>
+      </div>
+      <a class="nav-cta" href="#docs">書類を確認する</a>
+    </div>
   </div>
 </header>
 
@@ -619,23 +671,34 @@
   <section id="schedule">
     <span class="eyebrow">Schedule</span>
     <h2 class="title">応募申請〜効果報告までの流れ</h2>
-    <p class="lead">申請から補助金の着金、その後の報告義務までを見据えたスケジュール感をご理解のうえ、お取り組みください。</p>
+    <p class="lead">中小企業省力化投資補助金（一般型）公式サイトの「応募申請・交付申請の流れ」に基づく、正確な9ステップです。申請して終わりではなく、着金後も5年間の報告義務がある制度だとご理解のうえお取り組みください。</p>
 
+    <div class="phase-label">交付決定まで</div>
     <div class="timeline">
-      <div class="tl-step"><div class="marker">1</div><h4>申請準備</h4><p>必要書類の収集と各種フォームの入力を行います。</p></div>
-      <div class="tl-step"><div class="marker">2</div><h4>応募申請</h4><p>審査を経て採択の可否が決定します。</p></div>
-      <div class="tl-step"><div class="marker">3</div><h4>着金・事業実施</h4><p>採択後、事業計画にもとづき設備投資を実施します。</p></div>
-      <div class="tl-step"><div class="marker">4</div><h4>効果報告</h4><p>事業計画実施期間中、継続して国へ報告を行います。</p></div>
+      <div class="tl-step"><div class="marker">1</div><h4>GビズID取得</h4><p>電子申請のためGビズIDプライムアカウントが必要です。取得に時間がかかるため早めに準備してください。</p></div>
+      <div class="tl-step"><div class="marker">2</div><h4>事業計画書作成／設備選定</h4><p>事業計画書を作成し、人手不足解消に効果があるデジタル技術等を活用した専用設備を選定します。</p></div>
+      <div class="tl-step"><div class="marker">3</div><h4>応募申請</h4><p>電子申請システムのみで受付。採択まで約3か月程度かかります。</p></div>
+      <div class="tl-step"><div class="marker">4</div><h4>相見積もり／事業者選定</h4><p>採択後（補助金交付候補者決定後）、発注先の選定にあたり原則2者以上から同一条件の見積を取得します。</p></div>
+      <div class="tl-step"><div class="marker">5</div><h4>交付申請</h4><p>電子申請システムで交付申請を行います。審査を経て交付決定となります。</p></div>
+    </div>
+
+    <div class="phase-label phase-label-b">交付決定後</div>
+    <div class="timeline">
+      <div class="tl-step"><div class="marker">6</div><h4>補助事業実施</h4><p>交付決定日から18か月以内（採択発表日から20か月以内）に設備の契約・納品・支払いまで完了させます。</p></div>
+      <div class="tl-step"><div class="marker">7</div><h4>実績報告</h4><p>事業完了日から30日を経過した日、または事業完了期限日のいずれか早い日までに実績報告書を提出します。</p></div>
+      <div class="tl-step"><div class="marker">8</div><h4>補助金交付（着金）</h4><p>実績報告の内容をもとに補助額が確定した後、支払い請求を行うと補助金が交付されます。満額とは限りません。</p></div>
+      <div class="tl-step"><div class="marker">9</div><h4>事業実施効果報告</h4><p>事業計画期間1年目終了後の最初の4月から5年間、毎年期限までに効果報告を行う必要があります。</p></div>
     </div>
 
     <div class="notice-box">
       <span class="eyebrow">留意事項</span>
       <ul>
-        <li>省力化補助金の申請から補助金着金までは、約1年〜2年ほどの期間を要します。</li>
-        <li>着金後も「事業計画実施期間」として原則5年間、国に報告をする必要があります。</li>
-        <li>本補助金は、申請して終わりではなく、実績報告および事業実施期間を含めた中長期的な対応が前提となる制度です。</li>
+        <li>応募申請から採択発表まで約3か月、交付申請から交付決定までを含めると、着金までに1年前後かかることが一般的です。</li>
+        <li>交付決定を受ける前に契約・発注した費用は補助対象になりません。必ず交付決定後に発注してください。</li>
+        <li>着金後も「事業計画期間」として原則5年間、毎年効果報告を行う必要があります。目標未達の場合は補助金返還が発生することがあります。</li>
       </ul>
     </div>
+    <p class="fine-print" style="margin-top:14px;">出典：<a href="https://shoryokuka.smrj.go.jp/ippan/flow/" target="_blank" rel="noopener" style="color:var(--blue);">応募申請・交付申請の流れ（中小企業省力化投資補助金 公式サイト）↗</a></p>
   </section>
 
   <section class="soft" id="bonus">
@@ -657,12 +720,13 @@
         <div class="bonus-card">
           <h4>認定までの流れ</h4>
           <ol class="steps-mini">
-            <li>中小企業庁の様式に沿って計画を作成</li>
-            <li>事業所を管轄する経済産業局へ申請</li>
-            <li>審査のうえ、認定通知が届く（通常1〜2ヶ月）</li>
+            <li>GビズIDプライムを取得（電子申請に必須）</li>
+            <li>電子申請システムから計画を作成・申請</li>
+            <li>審査のうえ、認定（標準処理期間は約45日）</li>
           </ol>
           <div class="bonus-links">
             <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html" target="_blank" rel="noopener">事業継続力強化計画（公式サイト）↗</a>
+            <a href="https://www.keizokuryoku.go.jp/" target="_blank" rel="noopener" class="mypage-link">事業継続力強化計画 マイページ（電子申請システム）↗</a>
             <a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/keizokuryoku.html#contact" target="_blank" rel="noopener">申請に関するお問い合わせ先 ↗</a>
           </div>
         </div>
@@ -769,7 +833,7 @@
             <h5>1人当たりの給与支給総額の確認書（指定書式）</h5>
             <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
           </div>
-          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/法人/1人当たりの給与支給総額の確認書法人" target="_blank" rel="noopener">詳しくはこちら</a></div>
+          <div class="doc-action"><a href="#" data-manual="kyuyo">詳しくはこちら</a></div>
         </li>
 
         <li class="doc-item" data-id="c9">
@@ -805,7 +869,7 @@
             <h5>事業実施場所が複数の場合 <span class="badge">任意</span></h5>
             <p class="fmt">事業実施場所リスト（指定書式）を記入して提出</p>
           </div>
-          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/個人事業主/事業実施場所リスト" target="_blank" rel="noopener">詳しくはこちら</a></div>
+          <div class="doc-action"><a href="#" data-manual="location">詳しくはこちら</a></div>
         </li>
 
         <li class="doc-item optional" data-id="c13">
@@ -886,7 +950,7 @@
             <h5>1人当たり給与支給総額の確認書（指定書式）</h5>
             <p class="fmt">提出様式：ダウンロードしたExcelファイルに記入して提出</p>
           </div>
-          <div class="doc-action"><a href="https://sites.google.com/momentum-youth.co.jp/syoryokuka/ホーム/個人事業主/1人当たりの給与支給総額の確認書個人" target="_blank" rel="noopener">詳しくはこちら</a></div>
+          <div class="doc-action"><a href="#" data-manual="kyuyo">詳しくはこちら</a></div>
         </li>
 
         <li class="doc-item" data-id="i7">
@@ -913,7 +977,7 @@
             <h5>事業実施場所が複数の場合 <span class="badge">任意</span></h5>
             <p class="fmt">事業実施場所リスト（指定書式）を記入して提出</p>
           </div>
-          <div class="doc-action"><a href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_project_location_list_ippan.xlsx" target="_blank" rel="noopener">ファイルをダウンロード</a></div>
+          <div class="doc-action"><a href="#" data-manual="location">詳しくはこちら</a></div>
         </li>
 
         <li class="doc-item optional" data-id="i10">
@@ -965,6 +1029,23 @@
 
 <script>
 (function(){
+  // Mypage dropdown
+  var mypageToggle = document.getElementById('mypageToggle');
+  var mypageMenu = document.getElementById('mypageMenu');
+  if(mypageToggle){
+    mypageToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      mypageToggle.classList.toggle('open');
+      mypageMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!mypageMenu.contains(e.target) && e.target !== mypageToggle){
+        mypageToggle.classList.remove('open');
+        mypageMenu.classList.remove('open');
+      }
+    });
+  }
+
   // Sidebar
   var sidebar = document.getElementById('sidebar');
   var backdrop = document.getElementById('backdrop');
@@ -995,7 +1076,10 @@
         + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
-        + '<button class="manual-btn secondary" data-open-steps="gbiz_corp">取得マニュアルを見る</button>'
+        + '</div>'
+        + '<div class="manual-actions" style="flex-direction:row; gap:10px;">'
+        + '<button class="manual-btn secondary" style="flex:1;" data-open-steps="gbiz_corp" data-mode="online">オンライン申請マニュアル</button>'
+        + '<button class="manual-btn secondary" style="flex:1;" data-open-steps="gbiz_corp" data-mode="mail">郵送申請マニュアル</button>'
         + '</div>'
         + '<div class="manual-caps">'
         + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_corporation.pdf" target="_blank" rel="noopener" style="color:var(--blue);">公式クイックマニュアル 法人代表者編（PDF）↗</a>'
@@ -1058,9 +1142,25 @@
         {tag:"STEP 8", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
         {tag:"STEP 9", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
         {tag:"完了", title:"マイページをキャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+      ],
+      stepsTitleMail: "GビズIDプライム 取得マニュアル（法人・郵送申請）",
+      stepsMail: [
+        {tag:"事前準備", title:"印鑑証明書を用意する", desc:"マイナンバーカードは不要ですが、発行日から3か月以内の印鑑証明書の原本（法務局発行、コピー不可）が必要です。スマホアプリのインストールは任意（なくても書類申請は可能）です。"},
+        {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」と進み、「法人代表者、府省・地方公共団体職員」を選んで「次へ」を押します。"},
+        {tag:"STEP 2", title:"書類申請へ進む", desc:"「事前チェックに進む」→マイナンバーカードの有無を聞かれたら「持っていない」を選択し「次へ」。「書類申請へ進む」リンクをクリックし、「書類申請を開始する」ボタンを押します。"},
+        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"オンライン申請と同じ画面で、メールアドレスを入力し利用規約に同意して「入力内容を確認する」を押します。届いたワンタイムパスワードを入力して送信します。"},
+        {tag:"STEP 4", title:"基本情報を入力する", desc:"法人番号・法人名（自動入力可）・事業所所在地・代表者氏名・代表者氏名フリガナ・代表者生年月日を入力し「アカウント利用者情報入力へ進む」を押します。",
+          mock:'<div class="manual-warn">事業所所在地・代表者氏名・代表者生年月日が印鑑証明書の記載と異なっていると、書類不備とみなされ審査に通りません。印鑑証明書のとおり正確に入力してください。</div>'
+        },
+        {tag:"STEP 5", title:"利用者情報・パスワードを入力する", desc:"連絡先郵便番号・住所・利用者氏名などを入力し「アカウント情報入力へ進む」。続けてSMS受信用電話番号とGビズIDログインパスワードを入力し「入力内容を確認する」を押します。"},
+        {tag:"STEP 6", title:"送信してエントリーアカウントを作成", desc:"申請内容を確認し「この内容で送信する」を押すと、GビズIDエントリーアカウントが作成されます。続けて「アプリ認証を設定する」を押します（アプリがなければスキップ可）。"},
+        {tag:"STEP 7", title:"申請書をダウンロード・印刷する", desc:"「申請書をダウンロードする」ボタンから申請書（GビズIDプライム登録申請書〈法人〉）をダウンロードし、印刷します。"},
+        {tag:"STEP 8", title:"押印して郵送する", desc:"申請書の「作成日」欄に日付を手書きし、印鑑証明書の代表者印を実印欄に押印します。原本を〒530-8532 GビズID運用センター宛に郵送してください（申請書はコピーを保管）。",
+          mock:'<div class="manual-note"><b>郵送に必要な書類</b><br>①GビズIDプライム登録申請書（法人）　②印鑑証明書（発行日より3か月以内の原本、法務局発行、コピー不可）</div>'
+        },
+        {tag:"完了", title:"審査完了を待つ", desc:"審査には最大1か月ほどかかります。審査状況はGビズIDエントリーアカウントでマイページにログインして確認できます。審査完了後、SMS認証を行うとプライムアカウントが有効になります。"}
       ]
     },
-    gbiz_indiv: {
       eyebrow: "GビズIDプライム登録（個人事業主）",
       title: "GbizIDプライム（個人事業主）",
       html: '<p class="manual-lede">GビズIDは、すべての事業者を対象とした共通認証システムです。一つのID・パスワードで、複数の行政サービスにログインでき、補助金申請、社会保険手続、各種認可申請など業務上の電子届出や申請に使用できます。</p>'
@@ -1072,7 +1172,10 @@
         + '<div class="manual-warn">取得が完了したら、マイページTOP画面のキャプチャを取得してください。（Windows：Print Screenキー／Mac：⌘+Shift+3）</div>'
         + '<div class="manual-actions">'
         + '<a class="manual-btn" href="https://gbiz-id.go.jp/top/" target="_blank" rel="noopener">GbizIDプライムを取得する</a>'
-        + '<button class="manual-btn secondary" data-open-steps="gbiz_indiv">取得マニュアルを見る</button>'
+        + '</div>'
+        + '<div class="manual-actions" style="flex-direction:row; gap:10px;">'
+        + '<button class="manual-btn secondary" style="flex:1;" data-open-steps="gbiz_indiv" data-mode="online">オンライン申請マニュアル</button>'
+        + '<button class="manual-btn secondary" style="flex:1;" data-open-steps="gbiz_indiv" data-mode="mail">郵送申請マニュアル</button>'
         + '</div>'
         + '<div class="manual-caps">'
         + '<a href="https://gbiz-id.go.jp/top/manual/pdf/QuickManual_Prime_sole-proprietor.pdf" target="_blank" rel="noopener" style="color:var(--blue);">公式クイックマニュアル 個人事業主編（PDF）↗</a>'
@@ -1133,6 +1236,23 @@
         {tag:"STEP 8", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
         {tag:"STEP 9", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
         {tag:"完了", title:"マイページをキャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
+      ],
+      stepsTitleMail: "GビズIDプライム 取得マニュアル（個人事業主・郵送申請）",
+      stepsMail: [
+        {tag:"事前準備", title:"印鑑登録証明書を用意する", desc:"マイナンバーカードは不要ですが、発行日から3か月以内の印鑑登録証明書の原本（市区町村発行、コピー不可）が必要です。スマホアプリのインストールは任意（なくても書類申請は可能）です。"},
+        {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」と進み、「個人事業主」を選んで「次へ」を押します。"},
+        {tag:"STEP 2", title:"書類申請へ進む", desc:"「事前チェックに進む」→マイナンバーカードの有無を聞かれたら「持っていない」を選択し「次へ」。「書類申請へ進む」リンクをクリックし、「書類申請を開始する」ボタンを押します。"},
+        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"オンライン申請と同じ画面で、メールアドレスを入力し利用規約に同意して「入力内容を確認する」を押します。届いたワンタイムパスワードを入力して送信します。"},
+        {tag:"STEP 4", title:"基本情報を入力する", desc:"屋号・事業所所在地・代表者氏名・代表者氏名フリガナ・代表者生年月日を入力し「アカウント利用者情報入力へ進む」を押します。",
+          mock:'<div class="manual-warn">事業所所在地・代表者氏名・代表者生年月日が印鑑登録証明書の記載と異なっていると、書類不備とみなされ審査に通りません。証明書のとおり正確に入力してください。</div>'
+        },
+        {tag:"STEP 5", title:"利用者情報・パスワードを入力する", desc:"連絡先郵便番号・住所・利用者氏名などを入力し「アカウント情報入力へ進む」。続けてSMS受信用電話番号とGビズIDログインパスワードを入力し「入力内容を確認する」を押します。"},
+        {tag:"STEP 6", title:"送信してエントリーアカウントを作成", desc:"申請内容を確認し「この内容で送信する」を押すと、GビズIDエントリーアカウントが作成されます。続けて「アプリ認証を設定する」を押します（アプリがなければスキップ可）。"},
+        {tag:"STEP 7", title:"申請書をダウンロード・印刷する", desc:"「申請書ダウンロード」ボタンから申請書（GビズIDプライム登録申請書〈個人事業主〉）をダウンロードし、印刷します。"},
+        {tag:"STEP 8", title:"押印して郵送する", desc:"申請書の「作成日」欄に日付を手書きし、印鑑登録証明書の実印を実印欄に押印します。原本を〒530-8532 GビズID運用センター宛に郵送してください（申請書はコピーを保管）。",
+          mock:'<div class="manual-note"><b>郵送に必要な書類</b><br>①GビズIDプライム登録申請書（個人事業主）　②印鑑登録証明書（発行日より3か月以内の原本、市区町村発行、コピー不可）</div>'
+        },
+        {tag:"完了", title:"審査完了を待つ", desc:"審査には原則1か月以内かかります。審査状況はGビズIDエントリーアカウントでマイページにログインして確認できます。審査完了後、SMS認証を行うとプライムアカウントが有効になります。"}
       ]
     },
     kessan_corp: {
@@ -1146,22 +1266,31 @@
     rireki: {
       eyebrow: "履歴事項全部証明書",
       title: "履歴事項全部証明書",
-      html: '<p class="manual-lede">法務局でご取得いただけます。</p>'
+      html: '<p class="manual-lede"><b>法務局の窓口での取得</b>をおすすめします。窓口なら即日その場で受け取れます。オンライン（登記ねっと）でも取得できますが、窓口受取または郵送での受け取りとなるため、届くまで数日かかります。</p>'
+        + '<div class="manual-note"><b>登記ねっとで請求しても、窓口受取・郵送で受け取る証明書は、法務局窓口で直接取得するものと同じ様式です。</b>どちらも登記所（法務局）が発行する同一の公文書であり、電子データがそのままオンライン交付されるわけではありません（法務省公式サイトで確認済み）。</div>'
         + '<div class="manual-section-title">チェックリスト</div>'
-        + '<ul class="manual-check"><li>履歴事項全部証明書であること</li><li>発行日が、省力化補助金申請日より3か月以内であること</li><li>全ページそろっていること</li></ul>'
+        + '<ul class="manual-check"><li>履歴事項全部証明書であること（現在事項証明書は不可）</li><li>発行日が、省力化補助金申請日より3か月以内であること</li><li>全ページそろっていること</li></ul>'
         + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+        + '<div class="manual-section-title">取得方法の比較</div>'
+        + '<ul class="manual-check">'
+        + '<li><b>法務局窓口：</b>1通600円。<b>即日</b>その場で受け取り可能。もっとも確実な方法です。</li>'
+        + '<li><b>登記ねっと（オンライン・窓口受取）：</b>1通490円。請求の翌業務日以降に、指定した登記所の窓口で受け取り。</li>'
+        + '<li><b>登記ねっと（オンライン・郵送受取）：</b>1通520円。自宅・会社にいながら取得できますが、到着まで数日かかります。</li>'
+        + '</ul>'
         + '<div class="manual-actions">'
-        + '<a class="manual-btn" href="https://www.moj.go.jp/MINJI/minji10.html" target="_blank" rel="noopener">法務局一覧サイト（公式）</a>'
-        + '<button class="manual-btn secondary" data-open-steps="rireki">取得マニュアルを見る</button>'
+        + '<a class="manual-btn" href="https://www.moj.go.jp/MINJI/minji10.html" target="_blank" rel="noopener">法務局一覧サイト（公式・窓口を探す）</a>'
+        + '<button class="manual-btn secondary" data-open-steps="rireki" data-mode="online">登記ねっとでの取得手順</button>'
         + '</div>'
         + '<div class="manual-caps">'
         + '<a href="https://www.touki-kyoutaku-online.moj.go.jp/first.html" target="_blank" rel="noopener" style="color:var(--blue);">登記ねっと公式サイトで実際の画面を見る ↗</a>'
         + '</div>',
-      stepsTitle: "履歴事項全部証明書 取得マニュアル",
+      stepsTitle: "履歴事項全部証明書 取得マニュアル（登記ねっと・オンライン請求）",
       steps: [
-        {tag:"事前準備", title:"利用者登録をする", desc:"法務省の「登記・供託オンライン申請システム（登記ねっと）」にアクセスし、利用者登録を行います（初回のみ）。"},
-        {tag:"STEP 1", title:"ログインして請求メニューを開く", desc:"登記ねっとにログインし、「かんたん登記・供託申請」（旧名称：かんたん証明書請求）を選択します。"},
-        {tag:"STEP 2", title:"会社を検索する", desc:"取得したい会社の正確な商号（社名）と本店所在地を入力して検索します。代表者印や身分証明書は原則不要です。",
+        {tag:"事前準備", title:"利用者情報を登録する", desc:"「登記・供託オンライン申請システム」にアクセスし、申請者情報登録（氏名・住所・電話番号・メールアドレス等）を行います。初回のみ必要で、ログイン用IDが発行されます（1年間利用がないと自動削除されるため再登録が必要になる場合があります）。"},
+        {tag:"STEP 1", title:"かんたん登記・供託申請を開く", desc:"登記ねっとにログインし、「かんたん登記・供託申請」を選択します。専用ソフトのインストールは不要で、Webブラウザだけで手続きできます。",
+          mock:'<div class="manual-note">2026年2月2日に名称が「かんたん証明書請求」から「かんたん登記・供託申請」へ変更されました。以前に取得した申請者IDはそのまま利用できます。</div>'
+        },
+        {tag:"STEP 2", title:"会社を検索する", desc:"取得したい会社の正確な商号（社名）と本店所在地を入力して、対象の法人を検索します。",
           mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
             + '<div class="mock-body">'
             + '<div class="mock-field"><span class="mock-label">商号（会社名）</span><div class="mock-input">株式会社〇〇<span class="mock-callout">1</span></div></div>'
@@ -1169,38 +1298,80 @@
             + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">検索する<span class="mock-callout">3</span></span></div>'
             + '</div></div>'
             + '<div class="mock-legend">'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>履歴事項全部証明書に記載されている正式な会社名を入力（株式会社の位置に注意）</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>登記されている本店所在地を入力（現在の所在地と異なる場合は登記上の住所）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>登記されている正式な会社名を入力（株式会社の位置に注意）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>登記上の本店所在地を入力（現在の実際の所在地と異なる場合は登記上の住所）</div>'
             + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>検索結果から対象の法人を選択して次に進みます</div>'
             + '</div>'
         },
-        {tag:"STEP 3", title:"証明書の種類と通数を指定", desc:"証明書の種類で「履歴事項証明書」を選択し、必要な通数を指定します。"},
-        {tag:"STEP 4", title:"受取方法を選び手数料を支払う", desc:"郵送または窓口受取を選択し、オンライン請求の手数料を支払います（窓口交付より割安です）。"},
-        {tag:"完了", title:"到着後にスキャンしてPDF化", desc:"証明書が届いたら全ページをスキャンし、PDFデータで提出用に保存します。発行日が申請日から3か月以内であることを確認してください。"}
+        {tag:"STEP 3", title:"証明書の種類・通数・交付方法を指定する", desc:"証明書の種類で「履歴事項証明書」を選択し、必要な通数を指定します。交付方法は「窓口受取」（最寄りの登記所や法務局証明サービスセンターで受取、490円）か「郵送」（520円）から選びます。"},
+        {tag:"STEP 4", title:"手数料を電子納付する", desc:"インターネットバンキングやPay-easy対応ATMで手数料を電子納付します。平日8:30〜23時・休日8:30〜18時に請求可能です（17:15以降の請求は翌業務日受付）。"},
+        {tag:"完了", title:"受け取ってスキャンする", desc:"窓口受取の場合は指定した登記所へ、郵送の場合は自宅・会社に届いたら、全ページをスキャンしてPDFデータで保存します。発行日が申請日から3か月以内であることを確認してください。"}
       ]
     },
     nozei_corp: {
       eyebrow: "納税証明書その2（直近3期分）",
       title: "納税証明書（その2）",
-      html: '<div class="manual-section-title">チェックリスト</div>'
-        + '<ul class="manual-check"><li>税目が「法人税」であること</li><li>納税証明書「その２」であること</li><li>直近3期分の納税証明書であること</li><li>税務署が発行していること</li></ul>'
+      html: '<p class="manual-lede"><b>必ず税務署で取得してください。</b>都道府県税事務所や市区町村役場で発行される証明書（法人事業税・法人住民税の納税証明書など）は対象外です。国税である法人税の証明書「その２」が必要です。</p>'
+        + '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>税目が「法人税」であること</li><li>納税証明書「その２」であること</li><li>直近3期分の納税証明書であること</li><li><b>発行元が税務署</b>であること（都道府県・市区町村ではない）</li></ul>'
         + '<div class="manual-note">直近3期分をご用意ください。設立から3期を迎えていない場合は、経過した決算分のみご提出ください。一度も決算を迎えていない場合は申請できません。</div>'
-        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。</p>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。管轄の税務署がわからない場合は、下記の国税庁サイトから郵便番号・住所で検索できます。</p>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://www.nta.go.jp/about/organization/access/map.htm" target="_blank" rel="noopener">管轄の税務署を調べる（国税庁）</a></div>'
     },
     yakuin: {
       eyebrow: "役員名簿（指定書式）",
       title: "役員名簿",
-      html: '<p class="manual-lede">入力用ファイルをダウンロードしてご入力ください。</p>'
-        + '<div class="manual-warn">応募申請時点の全役員の情報を記載してください。大企業・みなし大企業に所属する役員にはチェックを入れてください。株式会社以外の組織形態では、役員にあたる役職の情報を記載してください。</div>'
+      html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。</p>'
+        + '<div class="manual-section-title">どこに何を書くか</div>'
+        + '<ul class="manual-check">'
+        + '<li><b>役職・氏名：</b>応募申請時点の全役員を1行ずつ記載（代表取締役・取締役・監査役など全員）</li>'
+        + '<li><b>大企業／みなし大企業チェック欄：</b>その役員が大企業、またはみなし大企業に所属（兼務）している場合のみチェックを入れる。該当しなければ空欄でOK</li>'
+        + '<li><b>株式会社以外の組織：</b>「役員」に相当する役職（理事・組合長など）の情報をそのまま記載する</li>'
+        + '</ul>'
+        + '<div class="manual-warn">1人でも記載漏れがあると審査が止まる原因になります。履歴事項全部証明書に載っている役員と数が一致しているか、提出前に必ず見比べてください。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_officer_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
+        + '<p class="fine-print">リンク確認日：2026年8月11日時点（公式サイトの更新に応じてURLが変わる場合があります）</p>'
     },
     kabunushi: {
       eyebrow: "株主・出資者名簿（指定書式）",
       title: "株主・出資者名簿",
-      html: '<p class="manual-lede">入力用ファイルをダウンロードしてご入力ください。</p>'
-        + '<div class="manual-warn">応募申請時点の全株主出資者の情報を記載してください。大企業・みなし大企業に所属している者にはチェックを入れてください。「株保有数・出資価格」の合計が「総株式発行数・出資価格総額」と一致するようにしてください。</div>'
-        + '<p style="font-size:.86rem;color:var(--ink-faint);">※株主・出資者が21名以上の場合、全員分の入力は不要です。株保有数・出資価格が多い方から20名の情報を入力してください。</p>'
+      html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。</p>'
+        + '<div class="manual-section-title">どこに何を書くか</div>'
+        + '<ul class="manual-check">'
+        + '<li><b>氏名・名称／株保有数・出資価格：</b>応募申請時点の全株主・出資者を1行ずつ記載</li>'
+        + '<li><b>大企業／みなし大企業チェック欄：</b>その株主・出資者が大企業、または大企業に所属している場合のみチェック</li>'
+        + '<li><b>合計欄：</b>記載した「株保有数・出資価格」の合計が、会社全体の「総株式発行数・出資価格総額」と一致しているか必ず確認</li>'
+        + '</ul>'
+        + '<div class="manual-note">株主・出資者が21名以上いる場合、全員分の入力は不要です。株保有数・出資価格が多い順に上位20名だけを入力してください。</div>'
         + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_shareholder_investor_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
+        + '<p class="fine-print">リンク確認日：2026年8月11日時点（公式サイトの更新に応じてURLが変わる場合があります）</p>'
+    },
+    location: {
+      eyebrow: "事業実施場所リスト（指定書式）",
+      title: "事業実施場所リスト",
+      html: '<p class="manual-lede">補助事業の実施場所（設備を設置する工場・店舗等）が複数ある場合にのみ必要な書類です。1か所のみの場合は提出不要です。</p>'
+        + '<div class="manual-section-title">どこに何を書くか</div>'
+        + '<ul class="manual-check">'
+        + '<li><b>主たる実施場所：</b>申請システムの入力画面で直接入力します（このExcelには書きません）</li>'
+        + '<li><b>その他の実施場所：</b>主たる場所以外のすべての実施場所を、このリストに1か所ずつ記載します</li>'
+        + '</ul>'
+        + '<div class="manual-warn">実施場所は原則、後から変更できません。事務局から変更が承認された場合にのみ、リストを再提出してください。</div>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/assets/xls/yoshiki_project_location_list_ippan.xlsx" target="_blank" rel="noopener">入力用ファイルをダウンロード</a></div>'
+        + '<p class="fine-print">リンク確認日：2026年8月11日時点（公式サイトの更新に応じてURLが変わる場合があります）</p>'
+    },
+    kyuyo: {
+      eyebrow: "1人当たりの給与支給総額の確認書（指定書式）",
+      title: "1人当たりの給与支給総額の確認書",
+      html: '<p class="manual-lede">入力用のExcelファイルをダウンロードしてご入力ください。事業計画の「1人当たり給与支給総額」の基準値を算出するための書類です。</p>'
+        + '<div class="manual-section-title">どこに何を書くか</div>'
+        + '<ul class="manual-check">'
+        + '<li><b>従業員一覧：</b>直近決算時点で雇用している全従業員（対象者）を1行ずつ記載し、それぞれの給与支給総額を入力</li>'
+        + '<li><b>自動計算欄：</b>入力した情報をもとに、シート内で1人当たりの給与支給総額が自動算出されます</li>'
+        + '<li><b>決算期が12か月に満たない場合：</b>シート内の案内に従って12か月分に換算した金額に直してください</li>'
+        + '</ul>'
+        + '<div class="manual-warn">賃金台帳と数字が食い違っていると、後の交付申請時に指摘されます。作成時は必ず賃金台帳と突き合わせてください（交付申請時に賃金台帳の提出が別途必要です）。</div>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://shoryokuka.smrj.go.jp/ippan/download/" target="_blank" rel="noopener">指定書式ダウンロードページ（公式）</a></div>'
+        + '<p class="fine-print">リンク確認日：2026年8月11日時点（公式サイトの更新に応じてURLが変わる場合があります）</p>'
     },
     matching: {
       eyebrow: "成長加速マッチングサービス登録",
@@ -1307,9 +1478,11 @@
     nozei_ko: {
       eyebrow: "納税証明書その2（直近分）",
       title: "納税証明書（その2）",
-      html: '<div class="manual-section-title">チェックリスト</div>'
-        + '<ul class="manual-check"><li>直近の納税証明書であること</li><li>税目が「所得税」であること</li><li>税務署が発行していること</li></ul>'
-        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。直近1期分のみご提出ください。</p>'
+      html: '<p class="manual-lede"><b>必ず税務署で取得してください。</b>都道府県税事務所や市区町村役場で発行される証明書（住民税・事業税の納税証明書など）は対象外です。国税である所得税の証明書「その２」が必要です。</p>'
+        + '<div class="manual-section-title">チェックリスト</div>'
+        + '<ul class="manual-check"><li>直近の納税証明書であること</li><li>税目が「所得税」であること</li><li><b>発行元が税務署</b>であること（都道府県・市区町村ではない）</li></ul>'
+        + '<p>書類はすべてスキャンのうえPDFデータにてご提出ください。直近1期分のみご提出ください。管轄の税務署がわからない場合は、下記の国税庁サイトから郵便番号・住所で検索できます。</p>'
+        + '<div class="manual-actions"><a class="manual-btn" href="https://www.nta.go.jp/about/organization/access/map.htm" target="_blank" rel="noopener">管轄の税務署を調べる（国税庁）</a></div>'
     }
   };
 
@@ -1331,15 +1504,18 @@
     bindStepButtons();
   }
 
-  function renderSteps(key){
+  function renderSteps(key, mode){
     var d = manualData[key];
-    if(!d || !d.steps) return;
+    if(!d) return;
+    var isMail = mode === 'mail';
+    var steps = isMail ? d.stepsMail : d.steps;
+    if(!steps) return;
     manualEyebrow.textContent = "STEP BY STEP";
-    manualTitle.textContent = d.stepsTitle || d.title;
+    manualTitle.textContent = (isMail ? d.stepsTitleMail : d.stepsTitle) || d.title;
     var backSvg = '<svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5L5 9" stroke="currentColor" stroke-width="1.4"/></svg>';
     var html = '<button class="manual-back" data-back-to="' + key + '">' + backSvg + ' 概要に戻る</button>';
     html += '<ul class="step-flow">';
-    d.steps.forEach(function(s, i){
+    steps.forEach(function(s, i){
       html += '<li class="step-flow-item">'
         + '<div class="step-flow-num">' + (i + 1) + '</div>'
         + '<span class="step-flow-tag">' + s.tag + '</span>'
@@ -1358,7 +1534,7 @@
 
   function bindStepButtons(){
     document.querySelectorAll('[data-open-steps]').forEach(function(b){
-      b.addEventListener('click', function(){ renderSteps(b.dataset.openSteps); });
+      b.addEventListener('click', function(){ renderSteps(b.dataset.openSteps, b.dataset.mode); });
     });
   }
 
