@@ -1153,60 +1153,53 @@
       stepsTitle: "GビズIDプライム 取得マニュアル（法人・オンライン申請）",
       steps: [
         {tag:"事前準備", title:"マイナンバーカードとスマホを用意する", desc:"有効期限内で署名用電子証明書が搭載されたマイナンバーカードが必要です。事前にスマホでApp Store／Google Playから「GビズIDアプリ」をインストールしてください。"},
-        {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」→「事前チェックに進む」と進み、「法人代表者、府省・地方公共団体職員」を選んで「次へ」を押します。"},
-        {tag:"STEP 2", title:"マイナンバーカードの確認に答える", desc:"暗証番号を覚えているか等の質問に「持っている／覚えている」を選び「次へ」を繰り返すと、「オンライン申請を開始する」ボタンが表示されます。"},
-        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"最初の入力画面です。公式サイトの実際の文言そのままで再現しています。",
-          mock:'<div class="screen-recreate">'
-            + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
-            + '<div class="sr-breadcrumb"><span class="sr-crumb active">申請開始</span><span class="sr-crumb-arrow">›</span><span class="sr-crumb">アカウント登録完了</span></div>'
-            + '<div class="sr-body">'
-            + '<h5 class="sr-h">メールアドレス入力</h5>'
-            + '<p class="sr-p">はじめに、メールアドレスの所有確認を行います。入力いただいたメールアドレスは、今後ご利用いただくGビズIDプライムアカウントのアカウントIDとなります。</p>'
-            + '<div class="sr-field"><span class="sr-label">アカウントID（メールアドレス）<span class="sr-required">※必須</span><span class="mock-callout">1</span></span>'
-            + '<div class="sr-input">メールアドレス</div>'
-            + '<span class="sr-help">メール受信可能なメールアドレスを入力してください　例：abc@gbizid.co.jp</span></div>'
-            + '<div class="sr-terms"><a>利用規約を確認する</a> ／ <a>プライバシーポリシーを確認する</a></div>'
-            + '<div class="sr-field"><div class="sr-checkbox-row"><span class="mock-checkbox"></span>規約に同意する<span class="mock-callout">2</span></div></div>'
-            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">3</span></span></div>'
+        {tag:"STEP 1", title:"公式サイトから申請をはじめる", desc:"gbiz-id.go.jp のトップページにある「GビズIDアカウントの作成をはじめる」ボタンを押します。"},
+        {tag:"STEP 2", title:"プライムアカウントを選び、事前チェックに答える", desc:"「プライムアカウントを申請する」→「法人代表者、府省・地方公共団体職員」を選択。マイナンバーカードの暗証番号を「持っている／覚えている」で回答すると、オンライン申請へ進めます。"},
+        {tag:"STEP 3", title:"オンライン申請を開始する", desc:"お手続きに必要なもの（マイナンバーカード、申請用端末とメールアドレス、GビズIDアプリをインストールしたスマートフォン）を確認し「オンライン申請を開始する」を押します。"},
+        {tag:"STEP 4", title:"メールアドレスを登録する", desc:"アカウントIDとなるメールアドレスを入力し、利用規約に同意して「入力内容を確認する」を押します。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">メールアドレス</span><div class="mock-input">例）info@example.co.jp<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><div class="mock-input checkbox-row"><span class="mock-checkbox"></span>利用規約に同意する<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-btn">入力内容を確認する</span></div>'
             + '</div></div>'
             + '<div class="mock-legend">'
             + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力（そのままGビズIDのログインIDになります）</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>GビズIDサービス利用規約を確認し、チェックを入れる</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>ボタンを押すと確認画面へ。その後「この内容で送信する」を押すとワンタイムパスワードがメールで届きます（30分以内に入力）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>利用規約を確認し、チェックを入れる</div>'
             + '</div>'
-            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※gbiz-id.go.jp公式クイックマニュアル（法人代表者編）の記載内容をもとに再現しています</p>'
         },
-        {tag:"STEP 4", title:"基本情報・パスワードを入力する", desc:"ワンタイムパスワード入力後に表示される、法人代表者向けの入力フォームです。実際の項目名をそのまま再現しています。",
-          mock:'<div class="screen-recreate">'
-            + '<div class="sr-topbar"><span class="sr-logo">GビズID</span></div>'
-            + '<div class="sr-body">'
-            + '<h5 class="sr-h">基本情報の入力</h5>'
-            + '<p class="sr-p" style="margin-bottom:12px;">事業者基本情報</p>'
-            + '<div class="sr-field"><span class="sr-label">法人番号<span class="sr-required">※必須</span></span><div class="sr-input">13桁の法人番号</div></div>'
-            + '<div class="sr-field"><span class="sr-label">法人名<span class="sr-required">※必須</span></span><div class="sr-input">「法人情報取得」ボタンで自動入力<span class="mock-callout">1</span></div></div>'
-            + '<div class="sr-field"><span class="sr-label">事業所所在地<span class="sr-required">※必須</span></span><div class="sr-input">「法人情報取得」ボタンで自動入力</div></div>'
-            + '<div class="sr-field"><span class="sr-label">代表者氏名フリガナ<span class="sr-required">※必須</span></span><div class="sr-input">ヤマダ タロウ</div></div>'
-            + '<p class="sr-p" style="margin:18px 0 12px;">アカウント利用者情報</p>'
-            + '<div class="sr-field"><span class="sr-label">連絡先郵便番号<span class="sr-required">※必須</span></span><div class="sr-input">000-0000</div></div>'
-            + '<div class="sr-field"><span class="sr-label">連絡先住所<span class="sr-required">※必須</span></span><div class="sr-input">郵送物の送付先になります<span class="mock-callout">2</span></div></div>'
-            + '<div class="sr-field"><span class="sr-label">SMS受信用電話番号<span class="sr-required">※必須</span></span><div class="sr-input">ワンタイムパスワードの受信先<span class="mock-callout">3</span></div></div>'
-            + '<p class="sr-p" style="margin:18px 0 12px;">GビズIDログインパスワード</p>'
-            + '<div class="sr-field"><span class="sr-label">パスワード／確認用パスワード<span class="sr-required">※必須</span></span><div class="sr-input">••••••••</div></div>'
-            + '<div class="sr-field" style="margin-bottom:0;"><span class="mock-btn" style="display:inline-block;">入力内容を確認する<span class="mock-callout">4</span></span></div>'
+        {tag:"STEP 5", title:"メールアドレスを確認して送信", desc:"入力したメールアドレスに誤りがないか確認し「この内容で送信する」を押すと、ワンタイムパスワードがメールで届きます。"},
+        {tag:"STEP 6", title:"ワンタイムパスワードを入力する", desc:"メールに記載されたワンタイムパスワードを30分以内に入力し「この内容で送信する」を押します。期限切れの場合ははじめからやり直しになります。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">ワンタイムパスワード</span><div class="mock-input">例）123456<span class="mock-callout">1</span></div></div>'
             + '</div></div>'
             + '<div class="mock-legend">'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>法人番号を入れて「法人情報取得」ボタンを押すと、法人名・所在地が自動入力されます</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>郵送物（申請書など）が届く住所です。会社所在地と異なってもOK</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>この番号にワンタイムパスワードのSMSが届きます。携帯・スマホの番号を入力</div>'
-            + '<div class="mock-legend-item"><span class="mock-legend-num">4</span>旧字体・異体字（髙など）は登録できない場合があります。代替漢字（髙→高）に置き換えてください</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>届いたメール内の6桁の数字を入力します</div>'
             + '</div>'
-            + '<p style="font-size:.76rem;color:var(--ink-faint);margin-top:10px;">※公式クイックマニュアル（法人代表者編）12ページの実際の入力項目をもとに再現しています</p>'
         },
-        {tag:"STEP 5", title:"申請内容を確認して登録する", desc:"内容を確認し「この内容で登録する」を押すと、まずGビズIDエントリーアカウントが作成されます。入力したメールアドレス・パスワードでマイページにログインできるようになります。"},
-        {tag:"STEP 6", title:"アプリでQRコードを読み取り電子署名", desc:"画面に表示されたQRコードをスマホのGビズIDアプリで読み取り、マイナンバーカードを使って申請情報に電子署名します（QRコードの有効期限は10分）。"},
-        {tag:"STEP 7", title:"審査（最短即日）", desc:"PCの画面に戻り「この内容で登録する」を押すと審査が始まります。操作は不要でそのまま待ちます。審査完了後は「アプリ認証を設定する」を押します。"},
-        {tag:"STEP 8", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
-        {tag:"STEP 9", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
+        {tag:"STEP 7", title:"基本情報をまとめて入力する", desc:"法人番号を入力すると法人名・所在地が自動入力されます。続けて代表者氏名フリガナ、連絡先郵便番号・住所、SMS受信用電話番号、GビズIDログインパスワードまで、このページ内でまとめて入力します（マイナンバーカードの読み取りで代表者氏名・生年月日も取得されます）。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">法人番号</span><div class="mock-input">13桁の法人番号<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field"><span class="mock-label">法人名・所在地</span><div class="mock-input">法人番号から自動入力</div></div>'
+            + '<div class="mock-field"><span class="mock-label">代表者氏名フリガナ</span><div class="mock-input">例）ヤマダ タロウ</div></div>'
+            + '<div class="mock-field"><span class="mock-label">連絡先住所</span><div class="mock-input">郵送物の届く住所<span class="mock-callout">2</span></div></div>'
+            + '<div class="mock-field"><span class="mock-label">SMS受信用電話番号</span><div class="mock-input">ワンタイムパスワードの受信先<span class="mock-callout">3</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">GビズIDログインパスワード</span><div class="mock-input">••••••••</div></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>「法人情報取得」ボタンを押すと、法人名・所在地が自動入力されます</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">2</span>会社所在地と異なってもOK（申請書などの郵送先になります）</div>'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">3</span>携帯・スマホの番号を入力してください</div>'
+            + '</div>'
+            + '<div class="manual-warn">旧字体・異体字（髙など）は登録できない場合があります。代替漢字（髙→高）に置き換えてください。</div>'
+        },
+        {tag:"STEP 8", title:"申請内容を確認して登録する", desc:"内容を確認し「この内容で登録する」を押すと、まずGビズIDエントリーアカウントが作成されます。入力したメールアドレス・パスワードでマイページにログインできるようになります。"},
+        {tag:"STEP 9", title:"アプリでQRコードを読み取り電子署名", desc:"画面に表示されたQRコードをスマホのGビズIDアプリで読み取り、マイナンバーカードを使って申請情報に電子署名します（QRコードの有効期限は10分）。"},
+        {tag:"STEP 10", title:"審査（最短即日）", desc:"PCの画面に戻り「この内容で登録する」を押すと審査が始まります。操作は不要でそのまま待ちます。審査完了後は「アプリ認証を設定する」を押します。"},
+        {tag:"STEP 11", title:"アプリ認証を設定する", desc:"再度QRコードをアプリで読み取り、アプリに表示されたワンタイムパスワードをPC画面に入力して「この内容で送信する」を押します。"},
+        {tag:"STEP 12", title:"SMSで本人確認して完了", desc:"SMS受信用電話番号に届くワンタイムパスワードを入力し「この内容で送信する」を押すと手続き完了。GビズIDプライムアカウントとしてマイページにログインできます。"},
         {tag:"完了", title:"マイページをキャプチャ保存", desc:"マイページTOP画面のキャプチャを取得し、提出用に保存してください。"}
       ],
       stepsTitleMail: "GビズIDプライム 取得マニュアル（法人・郵送申請）",
@@ -1306,17 +1299,50 @@
       ],
       stepsTitleMail: "GビズIDプライム 取得マニュアル（個人事業主・郵送申請）",
       stepsMail: [
-        {tag:"事前準備", title:"印鑑登録証明書を用意する", desc:"マイナンバーカードは不要ですが、発行日から3か月以内の印鑑登録証明書の原本（市区町村発行、コピー不可）が必要です。スマホアプリのインストールは任意（なくても書類申請は可能）です。"},
+        {tag:"事前準備", title:"印鑑登録証明書を用意する", desc:"マイナンバーカードは不要ですが、発行日から3か月以内の印鑑登録証明書の原本（市区町村発行、コピー不可）と登録印が必要です。"},
         {tag:"STEP 1", title:"申請の入口を選ぶ", desc:"gbiz-id.go.jp の「GビズIDアカウントの作成をはじめる」→「プライムアカウントを申請する」と進み、「個人事業主」を選んで「次へ」を押します。"},
-        {tag:"STEP 2", title:"書類申請へ進む", desc:"「事前チェックに進む」→マイナンバーカードの有無を聞かれたら「持っていない」を選択し「次へ」。「書類申請へ進む」リンクをクリックし、「書類申請を開始する」ボタンを押します。"},
-        {tag:"STEP 3", title:"メールアドレスを登録する", desc:"オンライン申請と同じ画面で、メールアドレスを入力し利用規約に同意して「入力内容を確認する」を押します。届いたワンタイムパスワードを入力して送信します。"},
-        {tag:"STEP 4", title:"基本情報を入力する", desc:"屋号・事業所所在地・代表者氏名・代表者氏名フリガナ・代表者生年月日を入力し「アカウント利用者情報入力へ進む」を押します。",
-          mock:'<div class="manual-warn">事業所所在地・代表者氏名・代表者生年月日が印鑑登録証明書の記載と異なっていると、書類不備とみなされ審査に通りません。証明書のとおり正確に入力してください。</div>'
+        {tag:"STEP 2", title:"マイナンバーカードの有無を選択", desc:"マイナンバーカードを持っているか聞かれます。持っていない場合は「持っていない」を選んで「次へ」を押します。"},
+        {tag:"STEP 3", title:"書類申請に関する注意事項を確認", desc:"書類申請は審査完了まで最大1か月かかる旨の案内が表示されます。内容を確認し「書類申請を開始する」を押します。"},
+        {tag:"STEP 4", title:"必要なものを確認して申請を開始", desc:"印鑑登録証明書・登録印・PC/スマートフォン・印刷郵送代など、お手続きに必要なものが一覧表示されます。確認のうえ「書類申請を開始する」を押します。"},
+        {tag:"STEP 5", title:"メールアドレスを登録する", desc:"アカウントIDとなるメールアドレスを入力し、利用規約に同意して「入力内容を確認する」を押します。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">メールアドレス</span><div class="mock-input">例）taro@example.com<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><div class="mock-input checkbox-row"><span class="mock-checkbox"></span>利用規約に同意する</div></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>普段使っているメールアドレスを入力します（そのままログインIDになります）</div>'
+            + '</div>'
         },
-        {tag:"STEP 5", title:"利用者情報・パスワードを入力する", desc:"連絡先郵便番号・住所・利用者氏名などを入力し「アカウント情報入力へ進む」。続けてSMS受信用電話番号とGビズIDログインパスワードを入力し「入力内容を確認する」を押します。"},
-        {tag:"STEP 6", title:"送信してエントリーアカウントを作成", desc:"申請内容を確認し「この内容で送信する」を押すと、GビズIDエントリーアカウントが作成されます。続けて「アプリ認証を設定する」を押します（アプリがなければスキップ可）。"},
-        {tag:"STEP 7", title:"申請書をダウンロード・印刷する", desc:"「申請書ダウンロード」ボタンから申請書（GビズIDプライム登録申請書〈個人事業主〉）をダウンロードし、印刷します。"},
-        {tag:"STEP 8", title:"押印して郵送する", desc:"申請書の「作成日」欄に日付を手書きし、印鑑登録証明書の実印を実印欄に押印します。原本を〒530-8532 GビズID運用センター宛に郵送してください（申請書はコピーを保管）。",
+        {tag:"STEP 6", title:"メールアドレスを確認して送信", desc:"入力したメールアドレスに誤りがないか確認し「この内容で送信する」を押すと、ワンタイムパスワードがメールで届きます。"},
+        {tag:"STEP 7", title:"事業者基本情報を入力する", desc:"事業形態で「個人事業主」を選択し、屋号（なければ空欄可）・事業所所在地・代表者氏名・フリガナ・生年月日を入力します。印鑑登録証明書の記載どおりに入力してください。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">屋号</span><div class="mock-input">例）〇〇商店（なければ空欄可）</div></div>'
+            + '<div class="mock-field"><span class="mock-label">事業所所在地</span><div class="mock-input">印鑑登録証明書の記載どおりに<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">代表者氏名フリガナ</span><div class="mock-input">例）ヤマダ タロウ</div></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>印鑑登録証明書と記載が違うと審査に通らないため、正確に転記してください</div>'
+            + '</div>'
+            + '<div class="manual-warn">所在地・代表者氏名・生年月日が印鑑登録証明書の記載と異なっていると、書類不備とみなされ審査に通りません。</div>'
+        },
+        {tag:"STEP 8", title:"アカウント利用者情報を入力する", desc:"連絡先郵便番号・住所・利用者氏名・フリガナ・生年月日・部署名・連絡先電話番号を入力します。基本情報と同じ住所の場合は「基本情報をコピーする」ボタンが使えます。"},
+        {tag:"STEP 9", title:"アカウント情報を登録する", desc:"SMS受信用電話番号とGビズIDログインパスワードを入力します。",
+          mock:'<div class="mock-frame"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>'
+            + '<div class="mock-body">'
+            + '<div class="mock-field"><span class="mock-label">SMS受信用電話番号</span><div class="mock-input">例）090-0000-0000<span class="mock-callout">1</span></div></div>'
+            + '<div class="mock-field" style="margin-bottom:0;"><span class="mock-label">GビズIDログインパスワード</span><div class="mock-input">••••••••</div></div>'
+            + '</div></div>'
+            + '<div class="mock-legend">'
+            + '<div class="mock-legend-item"><span class="mock-legend-num">1</span>この番号にワンタイムパスワードが届くため、間違いがないか特に注意してください</div>'
+            + '</div>'
+        },
+        {tag:"STEP 10", title:"入力内容を確認して送信", desc:"SMS受信用電話番号に誤りがないか特に注意して確認してください。誤りがあると、はじめから申請のやり直しが必要になります。確認のうえ「この内容で送信する」を押します。"},
+        {tag:"STEP 11", title:"申請書をダウンロードして印刷する", desc:"登録申請受付完了の画面が表示されます。この時点ではまだ手続きは完了していません。続けてアプリ認証の登録を行うと、申請書がダウンロードできるようになります。",
+          mock:'<div class="manual-note">アプリ認証の登録をスキップする場合は、後でマイページから改めて登録できます。申請書がダウンロードできなかった場合も、マイページにログインしてダウンロードしてください。</div>'
+        },
+        {tag:"STEP 12", title:"押印して郵送する", desc:"ダウンロードした申請書の「作成日」欄に日付を手書きし、印鑑登録証明書の実印を押印します。原本を郵送してください（申請書はコピーを保管）。",
           mock:'<div class="manual-note"><b>郵送に必要な書類</b><br>①GビズIDプライム登録申請書（個人事業主）　②印鑑登録証明書（発行日より3か月以内の原本、市区町村発行、コピー不可）</div>'
         },
         {tag:"完了", title:"審査完了を待つ", desc:"審査には原則1か月以内かかります。審査状況はGビズIDエントリーアカウントでマイページにログインして確認できます。審査完了後、SMS認証を行うとプライムアカウントが有効になります。"}
