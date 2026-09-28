@@ -379,6 +379,13 @@
     padding-bottom:28px; border-bottom:1px solid var(--line-soft); margin-bottom:22px;
   }
   .footer-top .brand{font-size:.95rem;}
+
+  .policy-h{font-size:.95rem; font-weight:700; margin:26px 0 8px; letter-spacing:-0.01em; color:var(--ink);}
+  .policy-list{margin:0 0 14px; padding-left:1.3em; color:var(--ink-soft); font-size:.9rem; line-height:1.8;}
+  .policy-list li{margin-bottom:4px;}
+  .footer-brand-col{display:flex; flex-direction:column; gap:10px; align-items:flex-start;}
+  .footer-links a{font-size:.8rem; color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px;}
+  .footer-links a:hover{color:var(--ink);}
   .back-top{font-size:.78rem; color:var(--ink-soft); border:1px solid var(--line); padding:8px 16px; border-radius:980px;}
   .back-top:hover{border-color:var(--ink); color:var(--ink);}
   footer p.copy{font-size:.76rem; color:var(--ink-faint); margin:0;}
@@ -1084,7 +1091,10 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="brand"><span class="dot"></span>申請サポートガイド</div>
+      <div class="footer-brand-col">
+        <div class="brand"><span class="dot"></span>申請サポートガイド</div>
+        <div class="footer-links"><a href="#" data-manual="privacy">個人情報の取り扱いについて</a></div>
+      </div>
       <a class="back-top scroll-top-link" href="#">TOP へ戻る ↑</a>
     </div>
     <p class="copy">Copyright © All Rights Reserved. 本サイトの内容・文章・画像等の無断転載・複製・二次配布を禁じます。</p>
@@ -1485,6 +1495,38 @@
         + '→ この例では「2025年3月分〜2026年2月分」の<b>12か月分</b>の賃金台帳をご用意いただく形になります。'
         + '</div>'
         + '<p style="font-size:.82rem;color:var(--ink-faint);">※締め日・支払日は会社によって異なります。自社の給与規程に合わせて、支給日が決算期間に入る月を数えてください。</p>'
+    },
+    privacy: {
+      eyebrow: "個人情報保護",
+      title: "個人情報の取り扱いについて",
+      html: '<p>本サービスの運営者（以下「当方」）は、補助金申請支援サービス（以下「本サービス」）の提供にあたり、お客様の個人情報を個人情報保護法その他の関係法令に従い、以下のとおり適切に取り扱います。</p>'
+        + '<h4 class="policy-h">1. 取得する個人情報</h4>'
+        + '<p>当方は、本サービスの提供に必要な範囲で、以下の情報を取得します。</p>'
+        + '<ul class="policy-list"><li>氏名、生年月日、住所、電話番号、メールアドレス等の連絡先情報</li><li>事業者名、所在地、業種、従業員数、資本金、設立年月日等の事業者情報</li><li>事業計画、財務状況、決算書、確定申告書、見積書等の申請に必要な書類および情報</li><li>本人確認書類の写し（申請に必要な場合に限ります）</li><li>お問い合わせやご相談の内容、やり取りの記録</li></ul>'
+        + '<h4 class="policy-h">2. 利用目的</h4>'
+        + '<p>取得した個人情報は、以下の目的のために利用します。</p>'
+        + '<ul class="policy-list"><li>補助金の申請可否の検討、申請書類の作成、申請手続きの代行・支援</li><li>採択後の交付申請、実績報告、各種変更手続き等の支援</li><li>申請内容に関する確認、ご連絡、進捗のご報告</li><li>補助金・助成金等に関する情報のご案内</li><li>お問い合わせへの対応</li><li>本サービスの品質向上および改善のための分析（個人を特定しない形で行います）</li></ul>'
+        + '<p>上記以外の目的で利用する場合は、あらかじめご本人の同意を得ます。</p>'
+        + '<h4 class="policy-h">3. 第三者への提供</h4>'
+        + '<p>当方は、以下の場合を除き、ご本人の同意なく個人情報を第三者に提供しません。</p>'
+        + '<ul class="policy-list"><li>補助金の申請・手続きに必要な範囲で、補助金の事務局、国、地方公共団体その他の関係機関に提供する場合</li><li>法令に基づく場合</li><li>人の生命、身体または財産の保護のために必要であり、ご本人の同意を得ることが困難な場合</li><li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに協力する必要がある場合</li></ul>'
+        + '<p>なお、補助金の申請にあたっては、各補助金の公募要領に基づき、事務局等においても個人情報が取り扱われます。その取り扱いについては、各事務局の定めに従います。</p>'
+        + '<h4 class="policy-h">4. 業務の委託</h4>'
+        + '<p>当方は、利用目的の達成に必要な範囲で、個人情報の取り扱いの全部または一部を外部に委託する場合があります。この場合、委託先を適切に選定し、個人情報の安全管理が図られるよう必要かつ適切な監督を行います。</p>'
+        + '<h4 class="policy-h">5. 安全管理措置</h4>'
+        + '<p>当方は、お預かりした個人情報の漏えい、滅失または毀損を防ぐため、以下の措置を講じます。</p>'
+        + '<ul class="policy-list"><li>個人情報の取り扱いに関するルールを定め、取り扱う者を必要最小限に限定しています</li><li>個人情報を取り扱う者に対し、適切な取り扱いについての指導・確認を行います</li><li>書類は施錠できる場所で保管し、電子データはアクセス制限・パスワード管理を行います</li><li>不正アクセスやウイルス等から保護するため、セキュリティ対策を行った機器・サービスを使用します</li><li>クラウドサービスを利用して個人情報を保管する場合があります。その際は、適切な安全管理措置が講じられているサービスを選定します</li></ul>'
+        + '<h4 class="policy-h">6. 保管期間および廃棄</h4>'
+        + '<p>個人情報は、利用目的の達成に必要な期間保管します。補助金の制度上、交付後も一定期間の書類保管や報告が求められる場合があるため、その期間を考慮して保管します。保管期間の経過後または不要となった場合は、復元できない方法で速やかに廃棄・削除します。</p>'
+        + '<h4 class="policy-h">7. 開示・訂正・利用停止等のご請求</h4>'
+        + '<p>ご本人から、ご自身の個人情報について、利用目的の通知、開示、訂正、追加、削除、利用停止、第三者提供の停止等のご請求があった場合は、ご本人であることを確認したうえで、法令に従い遅滞なく対応します。ご請求は下記のお問い合わせ窓口までご連絡ください。</p>'
+        + '<h4 class="policy-h">8. 個人情報取扱事業者の名称・住所等</h4>'
+        + '<p>当方の名称、住所および代表者の氏名については、ご本人からのお求めに応じて遅滞なく回答いたします。下記のお問い合わせ窓口までご連絡ください。</p>'
+        + '<h4 class="policy-h">9. 本方針の変更</h4>'
+        + '<p>当方は、法令の改正や本サービスの内容の変更等に応じて、本方針を変更することがあります。変更後の内容は、本ページに掲載した時点から効力を生じるものとします。</p>'
+        + '<h4 class="policy-h">10. お問い合わせ窓口</h4>'
+        + '<p>個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>'
+        + '<div class="manual-note">メール：<a href="mailto:myml_cs@momentum-youth.co.jp" style="color:var(--blue);">myml_cs@momentum-youth.co.jp</a><br>受付時間：平日10:00〜18:00</div>'
     },
     kyuyo_recent: {
       eyebrow: "賃金台帳（直近支給分）",
